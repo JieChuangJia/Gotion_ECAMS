@@ -1,0 +1,3 @@
+串口对象属性增加握手协议属性，XONXOFF
+增加发送前清空发送、接收缓冲区
+write后，调用baseStream.Flush()
