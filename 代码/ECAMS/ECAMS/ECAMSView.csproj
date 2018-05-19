@@ -1,0 +1,350 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{D11B2623-F0F5-456F-91AB-294A59A4B4C0}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECAMS</RootNamespace>
+    <AssemblyName>ECAMS</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>1</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>ksirc.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.VisualBasic" />
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration.Install" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WareHouseControl">
+      <HintPath>..\..\WareHouseControl\bin\Release\WareHouseControl.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AboutView.Designer.cs">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ActivativeFormView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivativeFormView.designer.cs">
+      <DependentUpon>ActivativeFormView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AddTrayDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AddTrayDetailView.designer.cs">
+      <DependentUpon>AddTrayDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BaseView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BaseView.Designer.cs">
+      <DependentUpon>BaseView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ConfigView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfigView.Designer.cs">
+      <DependentUpon>ConfigView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ControlTaskView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ControlTaskView.Designer.cs">
+      <DependentUpon>ControlTaskView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataManageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataManageView.Designer.cs">
+      <DependentUpon>DataManageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DeviceMonitorView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DeviceMonitorView.Designer.cs">
+      <DependentUpon>DeviceMonitorView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogDetailView.Designer.cs">
+      <DependentUpon>LogDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LogView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LogView.Designer.cs">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductManageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductManageView.Designer.cs">
+      <DependentUpon>ProductManageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductParamSetView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductParamSetView.designer.cs">
+      <DependentUpon>ProductParamSetView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductTraceView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductTraceView.Designer.cs">
+      <DependentUpon>ProductTraceView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProgressBarView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProgressBarView.designer.cs">
+      <DependentUpon>ProgressBarView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StorageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StorageView.Designer.cs">
+      <DependentUpon>StorageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestModule\ModifyLoadFillForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestModule\ModifyLoadFillForm.Designer.cs">
+      <DependentUpon>ModifyLoadFillForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TestModule\TestModuleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TestModule\TestModuleForm.designer.cs">
+      <DependentUpon>TestModuleForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="TrayDetailView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TrayDetailView.designer.cs">
+      <DependentUpon>TrayDetailView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserManageView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserManageView.Designer.cs">
+      <DependentUpon>UserManageView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HistoryTaskQueryView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HistoryTaskQueryView.Designer.cs">
+      <DependentUpon>HistoryTaskQueryView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LoginView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LoginView.Designer.cs">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainView.Designer.cs">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ManageTaskView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ManageTaskView.Designer.cs">
+      <DependentUpon>ManageTaskView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StockManaView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StockManaView.Designer.cs">
+      <DependentUpon>StockManaView.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="AboutView.resx">
+      <DependentUpon>AboutView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ActivativeFormView.resx">
+      <DependentUpon>ActivativeFormView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AddTrayDetailView.resx">
+      <DependentUpon>AddTrayDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ConfigView.resx">
+      <DependentUpon>ConfigView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ControlTaskView.resx">
+      <DependentUpon>ControlTaskView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataManageView.resx">
+      <DependentUpon>DataManageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DeviceMonitorView.resx">
+      <DependentUpon>DeviceMonitorView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogDetailView.resx">
+      <DependentUpon>LogDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LogView.resx">
+      <DependentUpon>LogView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductManageView.resx">
+      <DependentUpon>ProductManageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductParamSetView.resx">
+      <DependentUpon>ProductParamSetView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductTraceView.resx">
+      <DependentUpon>ProductTraceView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProgressBarView.resx">
+      <DependentUpon>ProgressBarView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StorageView.resx">
+      <DependentUpon>StorageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestModule\ModifyLoadFillForm.resx">
+      <DependentUpon>ModifyLoadFillForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TestModule\TestModuleForm.resx">
+      <DependentUpon>TestModuleForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TrayDetailView.resx">
+      <DependentUpon>TrayDetailView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserManageView.resx">
+      <DependentUpon>UserManageView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HistoryTaskQueryView.resx">
+      <DependentUpon>HistoryTaskQueryView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LoginView.resx">
+      <DependentUpon>LoginView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainView.resx">
+      <DependentUpon>MainView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="ManageTaskView.resx">
+      <DependentUpon>ManageTaskView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StockManaView.resx">
+      <DependentUpon>StockManaView.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\DataSources\ECAMSPresenter.ServiceReference1.CompositeType.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECAMSDataAccess\ECAMSDataAccess.csproj">
+      <Project>{25D291F2-64FE-419D-888C-B72545A07DF1}</Project>
+      <Name>ECAMSDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECAMSModel\ECAMSModel.csproj">
+      <Project>{FC85ED43-1A7D-4D2B-934E-4EBAE314F210}</Project>
+      <Name>ECAMSModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECAMSPresenter\ECAMSPresenter.csproj">
+      <Project>{01E7ED87-0B42-446D-BA85-EEE3C6F5AE00}</Project>
+      <Name>ECAMSPresenter</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECAMSUserControl\ECAMSUserControl.csproj">
+      <Project>{840C9175-B904-4C17-B3EC-DE5CB52B5713}</Project>
+      <Name>ECAMSUserControl</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\LicenceManager\LicenceManager.csproj">
+      <Project>{785AA2AA-CC7E-408B-B61C-2DFB906D1797}</Project>
+      <Name>LicenceManager</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PLCControl\ECAMSPLCControl.csproj">
+      <Project>{A1770B48-C436-4A28-961C-DD0CE30BF8E8}</Project>
+      <Name>ECAMSPLCControl</Name>
+      <EmbedInteropTypes>False</EmbedInteropTypes>
+    </ProjectReference>
+    <ProjectReference Include="..\SygoleHFReaderIF\SygoleHFReaderIF.csproj">
+      <Project>{0D6AA9F8-DD62-4FCA-806B-FAFF467BD361}</Project>
+      <Name>SygoleHFReaderIF</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ksirc.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

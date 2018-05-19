@@ -1,0 +1,110 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{01E7ED87-0B42-446D-BA85-EEE3C6F5AE00}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECAMSPresenter</RootNamespace>
+    <AssemblyName>ECAMSPresenter</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.ServiceModel" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IView\IBaseView.cs" />
+    <Compile Include="IView\IConfigView.cs" />
+    <Compile Include="IView\IControlTaskView.cs" />
+    <Compile Include="IView\IDataManaView.cs" />
+    <Compile Include="IView\IDeviceMonitorView.cs" />
+    <Compile Include="IView\IHistoryTaskQueryView.cs" />
+    <Compile Include="IView\ILoginView.cs" />
+    <Compile Include="IView\ILogView.cs" />
+    <Compile Include="IView\IMainView.cs" />
+    <Compile Include="IView\IManageTaskView.cs" />
+    <Compile Include="IView\IProductManageView.cs" />
+    <Compile Include="IView\IProductTraceView.cs" />
+    <Compile Include="IView\IStockManaView.cs" />
+    <Compile Include="IView\IStorageView.cs" />
+    <Compile Include="IView\IUserManageView.cs" />
+    <Compile Include="Presenter\BasePresenter.cs" />
+    <Compile Include="Presenter\ConfigPresenter.cs" />
+    <Compile Include="Presenter\ControlTaskPresenter.cs" />
+    <Compile Include="Presenter\DataManaPresenter.cs" />
+    <Compile Include="Presenter\DeviceMonitorPresenter.cs" />
+    <Compile Include="Presenter\HistroyTaskPresenter.cs" />
+    <Compile Include="Presenter\LoginPresenter.cs" />
+    <Compile Include="Presenter\LogPresenter.cs" />
+    <Compile Include="Presenter\MainPresenter.cs" />
+    <Compile Include="Presenter\ManageTaskPresenter.cs" />
+    <Compile Include="Presenter\ProductManagePresenter.cs" />
+    <Compile Include="Presenter\ProductTracePresenter.cs" />
+    <Compile Include="Presenter\StockManaPresenter.cs" />
+    <Compile Include="Presenter\StoragePresenter.cs" />
+    <Compile Include="Presenter\UserManaPresenter.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\ECAMSDataAccess\ECAMSDataAccess.csproj">
+      <Project>{25D291F2-64FE-419D-888C-B72545A07DF1}</Project>
+      <Name>ECAMSDataAccess</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\ECAMSModel\ECAMSModel.csproj">
+      <Project>{FC85ED43-1A7D-4D2B-934E-4EBAE314F210}</Project>
+      <Name>ECAMSModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PLCControl\ECAMSPLCControl.csproj">
+      <Project>{A1770B48-C436-4A28-961C-DD0CE30BF8E8}</Project>
+      <Name>ECAMSPLCControl</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

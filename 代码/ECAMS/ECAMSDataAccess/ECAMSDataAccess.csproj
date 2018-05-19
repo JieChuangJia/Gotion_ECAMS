@@ -1,0 +1,174 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{25D291F2-64FE-419D-888C-B72545A07DF1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ECAMSDataAccess</RootNamespace>
+    <AssemblyName>ECAMSDataAccess</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <SccProjectName>
+    </SccProjectName>
+    <SccLocalPath>
+    </SccLocalPath>
+    <SccAuxPath>
+    </SccAuxPath>
+    <SccProvider>
+    </SccProvider>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BLL\MakeCardRecordBll.cs" />
+    <Compile Include="BLL\Man_WarningConfigBll.cs" />
+    <Compile Include="BLL\OCVBatteryBll.cs" />
+    <Compile Include="BLL\ControlInterfaceBll.cs" />
+    <Compile Include="BLL\ControlTaskBll.cs" />
+    <Compile Include="BLL\DeviceBll.cs" />
+    <Compile Include="BLL\GoodsSiteBll.cs" />
+    <Compile Include="BLL\HistoryManageTaskBll.cs" />
+    <Compile Include="BLL\LogBll.cs" />
+    <Compile Include="BLL\LogicStoreAreaBll.cs" />
+    <Compile Include="BLL\ManageTaskBll.cs" />
+    <Compile Include="BLL\ManageTaskDetailBll.cs" />
+    <Compile Include="BLL\ManageTaskListBll.cs" />
+    <Compile Include="BLL\OCVPalletBll.cs" />
+    <Compile Include="BLL\OCVRfidReadingBll.cs" />
+    <Compile Include="BLL\PalletHistoryRecordBll.cs" />
+    <Compile Include="BLL\PlcDBSimBll.cs" />
+    <Compile Include="BLL\ProductBll.cs" />
+    <Compile Include="BLL\RfidRdRecordBll.cs" />
+    <Compile Include="BLL\StockBll.cs" />
+    <Compile Include="BLL\StockDetailBll.cs" />
+    <Compile Include="BLL\StockListBll.cs" />
+    <Compile Include="BLL\StoreAreaBll.cs" />
+    <Compile Include="BLL\StoreHouseBll.cs" />
+    <Compile Include="BLL\TaskTypeBll.cs" />
+    <Compile Include="BLL\TB_After_GradeDataBll.cs" />
+    <Compile Include="BLL\TB_Batch_IndexBll.cs" />
+    <Compile Include="BLL\TB_Tray_indexBll.cs" />
+    <Compile Include="BLL\User_FunctionListBll.cs" />
+    <Compile Include="BLL\User_LimitBll.cs" />
+    <Compile Include="BLL\User_ListBll.cs" />
+    <Compile Include="BLL\User_RoleBll.cs" />
+    <Compile Include="BLL\View_QueryStockListBll.cs" />
+    <Compile Include="BLL\View_StockListDetailBll.cs" />
+    <Compile Include="DAL\MakeCardRecordDal.cs" />
+    <Compile Include="DAL\Man_WarningConfigDal.cs" />
+    <Compile Include="DAL\OCVBatteryDal.cs" />
+    <Compile Include="DAL\ControlInterfaceDal.cs" />
+    <Compile Include="DAL\ControlTaskDal.cs" />
+    <Compile Include="DAL\DeviceDAL.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="DAL\GoodsSiteDal.cs" />
+    <Compile Include="DAL\HistoryManageTaskDal.cs" />
+    <Compile Include="DAL\LogDal.cs" />
+    <Compile Include="DAL\LogicStoreAreaDal.cs" />
+    <Compile Include="DAL\ManageTaskDal.cs" />
+    <Compile Include="DAL\ManageTaskDetailDal.cs" />
+    <Compile Include="DAL\ManageTaskListDal.cs" />
+    <Compile Include="DAL\OCVPalletDal.cs" />
+    <Compile Include="DAL\OCVRfidReadingDal.cs" />
+    <Compile Include="DAL\PalletHistoryRecordDal.cs" />
+    <Compile Include="DAL\PlcDBSimDal.cs" />
+    <Compile Include="DAL\ProductDal.cs" />
+    <Compile Include="DAL\RfidRdRecordDal.cs" />
+    <Compile Include="DAL\StockDal.cs" />
+    <Compile Include="DAL\StockDetailDal.cs" />
+    <Compile Include="DAL\StockListDal.cs" />
+    <Compile Include="DAL\StoreAreaDal.cs" />
+    <Compile Include="DAL\StoreHouseDal.cs" />
+    <Compile Include="DAL\TaskTypeDal.cs" />
+    <Compile Include="DAL\TB_After_GradeDataDal.cs" />
+    <Compile Include="DAL\TB_Batch_IndexDal.cs" />
+    <Compile Include="DAL\TB_Tray_indexDal.cs" />
+    <Compile Include="DAL\User_FunctionListDal.cs" />
+    <Compile Include="DAL\User_LimitDal.cs" />
+    <Compile Include="DAL\User_ListDal.cs" />
+    <Compile Include="DAL\User_RoleDal.cs" />
+    <Compile Include="DAL\View_QueryStockListDal.cs" />
+    <Compile Include="DAL\View_StockListDetailDal.cs" />
+    <Compile Include="DBUtility\DbHelperSQL.cs" />
+    <Compile Include="DBUtility\DbHelperSQL2.cs" />
+    <Compile Include="DBUtility\PubConstant.cs" />
+    <Compile Include="Model\ControlInterfaceModel.cs" />
+    <Compile Include="Model\ControlTaskModel.cs" />
+    <Compile Include="Model\DeviceModel.cs" />
+    <Compile Include="Model\GoodsSiteModel.cs" />
+    <Compile Include="Model\HistoryManageTaskModel.cs" />
+    <Compile Include="Model\LogicStoreAreaModel.cs" />
+    <Compile Include="Model\LogModel.cs" />
+    <Compile Include="Model\MakeCardRecordModel.cs" />
+    <Compile Include="Model\ManageTaskDetailModel.cs" />
+    <Compile Include="Model\ManageTaskListModel.cs" />
+    <Compile Include="Model\ManageTaskModel.cs" />
+    <Compile Include="Model\Man_WarningConfigModel.cs" />
+    <Compile Include="Model\OCVBatteryModel.cs" />
+    <Compile Include="Model\OCVPalletModel.cs" />
+    <Compile Include="Model\OCVRfidReadingModel.cs" />
+    <Compile Include="Model\PalletHistoryRecordModel.cs" />
+    <Compile Include="Model\PlcDBSimModel.cs" />
+    <Compile Include="Model\ProductModel.cs" />
+    <Compile Include="Model\RfidRdRecordModel.cs" />
+    <Compile Include="Model\StockDetailModel.cs" />
+    <Compile Include="Model\StockListModel.cs" />
+    <Compile Include="Model\StockModel.cs" />
+    <Compile Include="Model\StoreAreaModel.cs" />
+    <Compile Include="Model\StoreHouseModel.cs" />
+    <Compile Include="Model\TaskTypeModel.cs" />
+    <Compile Include="Model\TB_After_GradeDataModel.cs" />
+    <Compile Include="Model\TB_Batch_IndexModel.cs" />
+    <Compile Include="Model\TB_Tray_indexModel.cs" />
+    <Compile Include="Model\User_FunctionListModel.cs" />
+    <Compile Include="Model\User_LimitModel.cs" />
+    <Compile Include="Model\User_ListModel.cs" />
+    <Compile Include="Model\User_RoleModel.cs" />
+    <Compile Include="Model\View_QueryStockListModel.cs" />
+    <Compile Include="Model\View_StockListDetailModel.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ECAMSModel\ECAMSModel.csproj">
+      <Project>{FC85ED43-1A7D-4D2B-934E-4EBAE314F210}</Project>
+      <Name>ECAMSModel</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
