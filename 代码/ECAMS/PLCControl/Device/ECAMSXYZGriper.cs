@@ -285,7 +285,7 @@ namespace PLCControl
         /// <returns></returns>
         private bool ExeBusinessFillPalete()
         {
-           
+            string reStr = "";
             #region 2从控制任务列表中取新任务，发送给PLC系统
             if (this.currentTask == null && this.devModel.DeviceStatus == EnumDevStatus.空闲.ToString())
             {
@@ -471,7 +471,50 @@ namespace PLCControl
                                
                             }
                            // AddLog(DebugTemp, EnumLogType.调试信息); //
+
+                            //判断是否重码
+                            if(BarcodeRepetition(batteryIDS,ref reStr))
+                            {
+                                taskCompletedReq = 6;
+                                currentTaskDescribe = "PLC任务完成:" + reStr;
+                                AddLog(devName + string.Format("装载错误，托盘号:{0},{1}", palletID, reStr), EnumLogType.错误);
+                                break;
+                            }
                             //解析批次信息
+                            int batParseRe = BatchParse(batteryIDS, ref batchID, ref reStr);
+                            if(batParseRe>0)
+                            {
+                                if (batParseRe == 3)//批次为空
+                                {
+                                    taskCompletedReq = 4;
+                                }
+                                else if (batParseRe == 1)//批次不存在
+                                {
+                                    taskCompletedReq = 5;
+                                }
+                                else if (batParseRe == 2)　//混批
+                                {
+                                    taskCompletedReq = 7;
+                                }
+                                else
+                                {
+                                    taskCompletedReq = 5;
+                                }
+                                if (DevCmdCommit())
+                                {
+                                    currentTaskPhase = 6;
+                                    currentTask.TaskPhase = currentTaskPhase.ToString();
+                                    currentTask.TaskStatus = EnumTaskStatus.已完成.ToString();
+                                    ctlTaskBll.Update(currentTask);
+                                    currentTaskDescribe = "PLC任务完成:" + reStr;
+                                    AddLog(devName + string.Format("装载错误，托盘号:{0},{1}",palletID,reStr), EnumLogType.错误);
+
+                                }
+                                break;
+                            }
+
+                            #region 原有批次判断逻辑
+                            /*
                             for (int i = 0; i < 48; i++)
                             {
                                 //if (!System.Text.RegularExpressions.Regex.IsMatch(batteryIDS[i], @"^[a-zA-Z0-9-]{13,13}$"))
@@ -528,7 +571,9 @@ namespace PLCControl
                                     AddLog(devName + ",装载错误，托盘号:" + palletID + ",不存在该批次：" + batchID, EnumLogType.错误);
                                 }
                                 break ;
-                            }
+                            }*/
+                            #endregion
+                          
                             if (ocvPalletBll.Exists(palletID))
                             {
                                 if (!ocvPalletBll.Delete(palletID))
@@ -1086,7 +1131,96 @@ namespace PLCControl
             }
         }
 
-       
+        /// <summary>
+        /// 批次检测,如果有不同批，不存在的批次，均返回错误代码
+        /// </summary>
+        /// <param name="batteryIDS"></param>
+        /// <param name="bat"></param>
+        /// <returns>0：正常，1：批次不存在，2：存在不同批,3:批次为空,4:其它错误</returns>
+        private int BatchParse(string[] batteryIDS, ref string batchID, ref string reStr)
+        {
+            int re = 0;
+            try
+            {
+                batchID = "";
+                string lastBatchID = "";
+
+                for (int i = 0; i < batteryIDS.Count(); i++)
+                {
+                    //if (!System.Text.RegularExpressions.Regex.IsMatch(batteryIDS[i], @"^[a-zA-Z0-9-]{13,13}$"))
+                    //{
+                    //    continue;
+                    //}
+                    // batchID = batteryIDS[i].Substring(2, 5);
+                    if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
+                    {
+                        continue;
+                    }
+                    if (batteryIDS[i].Length == 12)
+                    {
+                        batchID = batteryIDS[i].Substring(2, 5);
+                    }
+                    else
+                    {
+                        batchID = batteryIDS[i].Substring(0, 7);
+                    }
+                    if(!string.IsNullOrWhiteSpace(batchID))
+                    {
+                        if (!string.IsNullOrWhiteSpace(lastBatchID))
+                        {
+                            if (batchID.ToUpper() != lastBatchID.ToUpper())
+                            {
+                                reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
+                                re = 2;
+                                return re;
+                            }
+                        }
+                        lastBatchID = batchID;
+                    }
+                    //if (gxBatchBll.Exists(batchID))
+                    //{
+                    //    break;
+                    //}
+                }
+                if(string.IsNullOrWhiteSpace(batchID))
+                {
+                    re = 3;
+                    return re;
+                }
+                if (gxBatchBll.Exists(batchID))
+                {
+                    reStr = string.Format("批次:{0}不存在",  batchID);
+                    re=1;
+                    return re;
+                }
+
+                re = 0;
+                return re;
+            }
+            catch (Exception ex)
+            {
+                reStr = ex.ToString();
+                re = 4;
+                return re;
+            }
+        }
+        private bool BarcodeRepetition(string[] batteryIDS,ref string reStr)
+        {
+             for (int i = 0; i < batteryIDS.Count(); i++)
+             {
+                 string batteryID = batteryIDS[i];
+                 for(int j=i+1;j<batteryIDS.Count()-1;j++)
+                 {
+                     string targetBatteryID = batteryIDS[j];
+                     if(batteryID.ToUpper()== targetBatteryID.ToUpper())
+                     {
+                         reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
+                         return true;
+                     }
+                 }
+             }
+             return false;
+        }
         #endregion
     }
 }
