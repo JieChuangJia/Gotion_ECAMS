@@ -256,7 +256,7 @@
             this.splitContainer1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.splitContainer1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer1.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer1.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer1.Name = "splitContainer1";
             // 
             // splitContainer1.Panel1
@@ -323,7 +323,7 @@
             this.tableLayoutPanel2.Controls.Add(this.label63, 0, 13);
             this.tableLayoutPanel2.Controls.Add(this.label64, 1, 13);
             this.tableLayoutPanel2.Location = new System.Drawing.Point(4, 100);
-            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 18;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 45F));
@@ -344,7 +344,7 @@
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(187, 458);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(156, 458);
             this.tableLayoutPanel2.TabIndex = 1;
             // 
             // label30
@@ -366,7 +366,7 @@
             this.label31.Location = new System.Drawing.Point(81, 1);
             this.label31.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(101, 45);
+            this.label31.Size = new System.Drawing.Size(70, 45);
             this.label31.TabIndex = 0;
             this.label31.Text = "描述";
             // 
@@ -496,7 +496,7 @@
             this.label51.Location = new System.Drawing.Point(81, 47);
             this.label51.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label51.Name = "label51";
-            this.label51.Size = new System.Drawing.Size(98, 18);
+            this.label51.Size = new System.Drawing.Size(62, 21);
             this.label51.TabIndex = 0;
             this.label51.Text = "A1库堆垛机";
             // 
@@ -506,7 +506,7 @@
             this.label52.Location = new System.Drawing.Point(81, 69);
             this.label52.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label52.Name = "label52";
-            this.label52.Size = new System.Drawing.Size(98, 18);
+            this.label52.Size = new System.Drawing.Size(62, 21);
             this.label52.TabIndex = 0;
             this.label52.Text = "B1库堆垛机";
             // 
@@ -516,7 +516,7 @@
             this.label53.Location = new System.Drawing.Point(81, 91);
             this.label53.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label53.Name = "label53";
-            this.label53.Size = new System.Drawing.Size(98, 21);
+            this.label53.Size = new System.Drawing.Size(62, 21);
             this.label53.TabIndex = 0;
             this.label53.Text = "抓取机械手1";
             // 
@@ -526,7 +526,7 @@
             this.label54.Location = new System.Drawing.Point(81, 113);
             this.label54.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label54.Name = "label54";
-            this.label54.Size = new System.Drawing.Size(98, 21);
+            this.label54.Size = new System.Drawing.Size(62, 21);
             this.label54.TabIndex = 0;
             this.label54.Text = "抓取机械手2";
             // 
@@ -536,7 +536,7 @@
             this.label55.Location = new System.Drawing.Point(81, 135);
             this.label55.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label55.Name = "label55";
-            this.label55.Size = new System.Drawing.Size(98, 21);
+            this.label55.Size = new System.Drawing.Size(62, 21);
             this.label55.TabIndex = 0;
             this.label55.Text = "抓取机械手3";
             // 
@@ -546,7 +546,7 @@
             this.label56.Location = new System.Drawing.Point(81, 157);
             this.label56.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label56.Name = "label56";
-            this.label56.Size = new System.Drawing.Size(98, 21);
+            this.label56.Size = new System.Drawing.Size(62, 21);
             this.label56.TabIndex = 0;
             this.label56.Text = "A1库入库口站台";
             // 
@@ -556,7 +556,7 @@
             this.label57.Location = new System.Drawing.Point(81, 179);
             this.label57.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label57.Name = "label57";
-            this.label57.Size = new System.Drawing.Size(98, 21);
+            this.label57.Size = new System.Drawing.Size(62, 21);
             this.label57.TabIndex = 0;
             this.label57.Text = "A1库分容出口站台";
             // 
@@ -566,7 +566,7 @@
             this.label58.Location = new System.Drawing.Point(81, 201);
             this.label58.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label58.Name = "label58";
-            this.label58.Size = new System.Drawing.Size(98, 21);
+            this.label58.Size = new System.Drawing.Size(62, 21);
             this.label58.TabIndex = 0;
             this.label58.Text = "A1库分容入口站台";
             // 
@@ -576,7 +576,7 @@
             this.label59.Location = new System.Drawing.Point(81, 223);
             this.label59.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label59.Name = "label59";
-            this.label59.Size = new System.Drawing.Size(98, 21);
+            this.label59.Size = new System.Drawing.Size(62, 21);
             this.label59.TabIndex = 0;
             this.label59.Text = "A1出库口站台";
             // 
@@ -586,7 +586,7 @@
             this.label60.Location = new System.Drawing.Point(81, 245);
             this.label60.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(98, 21);
+            this.label60.Size = new System.Drawing.Size(62, 21);
             this.label60.TabIndex = 0;
             this.label60.Text = "B1入口码垛机之前站台";
             // 
@@ -596,7 +596,7 @@
             this.label61.Location = new System.Drawing.Point(81, 267);
             this.label61.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label61.Name = "label61";
-            this.label61.Size = new System.Drawing.Size(98, 21);
+            this.label61.Size = new System.Drawing.Size(62, 21);
             this.label61.TabIndex = 0;
             this.label61.Text = "B1库出口站台";
             // 
@@ -606,7 +606,7 @@
             this.label62.Location = new System.Drawing.Point(81, 289);
             this.label62.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label62.Name = "label62";
-            this.label62.Size = new System.Drawing.Size(98, 21);
+            this.label62.Size = new System.Drawing.Size(62, 21);
             this.label62.TabIndex = 0;
             this.label62.Text = "B1库空料框入口站台";
             // 
@@ -626,14 +626,14 @@
             this.label64.Location = new System.Drawing.Point(81, 311);
             this.label64.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label64.Name = "label64";
-            this.label64.Size = new System.Drawing.Size(98, 21);
+            this.label64.Size = new System.Drawing.Size(62, 21);
             this.label64.TabIndex = 0;
             this.label64.Text = "B1库空料框出口";
             // 
             // buttonQuitTest
             // 
             this.buttonQuitTest.Location = new System.Drawing.Point(4, 6);
-            this.buttonQuitTest.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonQuitTest.Margin = new System.Windows.Forms.Padding(4);
             this.buttonQuitTest.Name = "buttonQuitTest";
             this.buttonQuitTest.Size = new System.Drawing.Size(104, 52);
             this.buttonQuitTest.TabIndex = 0;
@@ -645,7 +645,7 @@
             // 
             this.splitContainer2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.splitContainer2.Location = new System.Drawing.Point(0, 0);
-            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.splitContainer2.Margin = new System.Windows.Forms.Padding(4);
             this.splitContainer2.Name = "splitContainer2";
             this.splitContainer2.Orientation = System.Windows.Forms.Orientation.Horizontal;
             // 
@@ -676,7 +676,7 @@
             this.tabControl1.Controls.Add(this.tabPage7);
             this.tabControl1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tabControl1.Location = new System.Drawing.Point(0, 0);
-            this.tabControl1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabControl1.Margin = new System.Windows.Forms.Padding(4);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
             this.tabControl1.Size = new System.Drawing.Size(1120, 704);
@@ -692,10 +692,10 @@
             this.tabPage1.Controls.Add(this.buttonClearDevCmd);
             this.tabPage1.Controls.Add(this.buttonRefreshDevStatus);
             this.tabPage1.Location = new System.Drawing.Point(4, 28);
-            this.tabPage1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage1.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage1.Size = new System.Drawing.Size(1112, 672);
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage1.Size = new System.Drawing.Size(1294, 672);
             this.tabPage1.TabIndex = 0;
             this.tabPage1.Text = "设备通信数据";
             // 
@@ -713,7 +713,7 @@
             this.tableLayoutPanel1.Controls.Add(this.label4, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.当前任务信息, 0, 2);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(316, 9);
-            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tableLayoutPanel1.Margin = new System.Windows.Forms.Padding(4);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 3;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.05025F));
@@ -735,7 +735,7 @@
             this.dataGridViewDevDB1.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridViewDevDB1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDevDB1.Location = new System.Drawing.Point(4, 44);
-            this.dataGridViewDevDB1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewDevDB1.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDevDB1.Name = "dataGridViewDevDB1";
             this.dataGridViewDevDB1.RowTemplate.Height = 23;
             this.dataGridViewDevDB1.Size = new System.Drawing.Size(382, 351);
@@ -746,7 +746,7 @@
             this.dataGridViewDevDB2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDevDB2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewDevDB2.Location = new System.Drawing.Point(394, 44);
-            this.dataGridViewDevDB2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewDevDB2.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDevDB2.Name = "dataGridViewDevDB2";
             this.dataGridViewDevDB2.RowTemplate.Height = 23;
             this.dataGridViewDevDB2.Size = new System.Drawing.Size(383, 351);
@@ -784,9 +784,9 @@
             this.当前任务信息.Controls.Add(this.dataGridViewCurrentTask);
             this.当前任务信息.Dock = System.Windows.Forms.DockStyle.Fill;
             this.当前任务信息.Location = new System.Drawing.Point(4, 403);
-            this.当前任务信息.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.当前任务信息.Margin = new System.Windows.Forms.Padding(4);
             this.当前任务信息.Name = "当前任务信息";
-            this.当前任务信息.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.当前任务信息.Padding = new System.Windows.Forms.Padding(4);
             this.当前任务信息.Size = new System.Drawing.Size(773, 247);
             this.当前任务信息.TabIndex = 7;
             this.当前任务信息.TabStop = false;
@@ -799,7 +799,7 @@
             this.dataGridViewCurrentTask.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dataGridViewCurrentTask.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dataGridViewCurrentTask.Location = new System.Drawing.Point(4, 25);
-            this.dataGridViewCurrentTask.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewCurrentTask.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewCurrentTask.Name = "dataGridViewCurrentTask";
             this.dataGridViewCurrentTask.RowHeadersVisible = false;
             this.dataGridViewCurrentTask.RowTemplate.Height = 23;
@@ -818,9 +818,9 @@
             this.groupBoxCtlSim.Controls.Add(this.label24);
             this.groupBoxCtlSim.Controls.Add(this.label25);
             this.groupBoxCtlSim.Location = new System.Drawing.Point(9, 186);
-            this.groupBoxCtlSim.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCtlSim.Margin = new System.Windows.Forms.Padding(4);
             this.groupBoxCtlSim.Name = "groupBoxCtlSim";
-            this.groupBoxCtlSim.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBoxCtlSim.Padding = new System.Windows.Forms.Padding(4);
             this.groupBoxCtlSim.Size = new System.Drawing.Size(282, 310);
             this.groupBoxCtlSim.TabIndex = 7;
             this.groupBoxCtlSim.TabStop = false;
@@ -829,7 +829,7 @@
             // buttonDB2Reset
             // 
             this.buttonDB2Reset.Location = new System.Drawing.Point(14, 207);
-            this.buttonDB2Reset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDB2Reset.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDB2Reset.Name = "buttonDB2Reset";
             this.buttonDB2Reset.Size = new System.Drawing.Size(108, 52);
             this.buttonDB2Reset.TabIndex = 7;
@@ -850,7 +850,7 @@
             "装箱口状态",
             "分拣口状态"});
             this.comboBoxDB2Items.Location = new System.Drawing.Point(126, 27);
-            this.comboBoxDB2Items.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDB2Items.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDB2Items.Name = "comboBoxDB2Items";
             this.comboBoxDB2Items.Size = new System.Drawing.Size(145, 26);
             this.comboBoxDB2Items.TabIndex = 1;
@@ -858,7 +858,7 @@
             // textBoxTaskReParam
             // 
             this.textBoxTaskReParam.Location = new System.Drawing.Point(126, 114);
-            this.textBoxTaskReParam.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTaskReParam.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTaskReParam.Name = "textBoxTaskReParam";
             this.textBoxTaskReParam.Size = new System.Drawing.Size(145, 28);
             this.textBoxTaskReParam.TabIndex = 5;
@@ -866,7 +866,7 @@
             // textBoxDB2ItemVal
             // 
             this.textBoxDB2ItemVal.Location = new System.Drawing.Point(128, 72);
-            this.textBoxDB2ItemVal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxDB2ItemVal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxDB2ItemVal.Name = "textBoxDB2ItemVal";
             this.textBoxDB2ItemVal.Size = new System.Drawing.Size(88, 28);
             this.textBoxDB2ItemVal.TabIndex = 5;
@@ -884,7 +884,7 @@
             // buttonDB2SimSet
             // 
             this.buttonDB2SimSet.Location = new System.Drawing.Point(130, 207);
-            this.buttonDB2SimSet.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDB2SimSet.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDB2SimSet.Name = "buttonDB2SimSet";
             this.buttonDB2SimSet.Size = new System.Drawing.Size(100, 52);
             this.buttonDB2SimSet.TabIndex = 0;
@@ -940,7 +940,7 @@
             "5002",
             "5003"});
             this.comboBoxDevList.Location = new System.Drawing.Point(16, 68);
-            this.comboBoxDevList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDevList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDevList.Name = "comboBoxDevList";
             this.comboBoxDevList.Size = new System.Drawing.Size(210, 26);
             this.comboBoxDevList.TabIndex = 1;
@@ -949,7 +949,7 @@
             // buttonClearDevCmd
             // 
             this.buttonClearDevCmd.Location = new System.Drawing.Point(120, 106);
-            this.buttonClearDevCmd.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClearDevCmd.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClearDevCmd.Name = "buttonClearDevCmd";
             this.buttonClearDevCmd.Size = new System.Drawing.Size(106, 52);
             this.buttonClearDevCmd.TabIndex = 0;
@@ -960,7 +960,7 @@
             // buttonRefreshDevStatus
             // 
             this.buttonRefreshDevStatus.Location = new System.Drawing.Point(16, 106);
-            this.buttonRefreshDevStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRefreshDevStatus.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRefreshDevStatus.Name = "buttonRefreshDevStatus";
             this.buttonRefreshDevStatus.Size = new System.Drawing.Size(94, 52);
             this.buttonRefreshDevStatus.TabIndex = 0;
@@ -978,10 +978,10 @@
             this.tabPage2.Controls.Add(this.label5);
             this.tabPage2.Controls.Add(this.comboBoxDtName);
             this.tabPage2.Location = new System.Drawing.Point(4, 28);
-            this.tabPage2.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage2.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage2.Name = "tabPage2";
-            this.tabPage2.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage2.Size = new System.Drawing.Size(1111, 672);
+            this.tabPage2.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage2.Size = new System.Drawing.Size(1112, 672);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "数据表";
             // 
@@ -992,16 +992,16 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridViewDt.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDt.Location = new System.Drawing.Point(4, 106);
-            this.dataGridViewDt.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewDt.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewDt.Name = "dataGridViewDt";
             this.dataGridViewDt.RowTemplate.Height = 23;
-            this.dataGridViewDt.Size = new System.Drawing.Size(1098, 544);
+            this.dataGridViewDt.Size = new System.Drawing.Size(1099, 544);
             this.dataGridViewDt.TabIndex = 7;
             // 
             // buttonDtModify
             // 
             this.buttonDtModify.Location = new System.Drawing.Point(484, 36);
-            this.buttonDtModify.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDtModify.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDtModify.Name = "buttonDtModify";
             this.buttonDtModify.Size = new System.Drawing.Size(87, 39);
             this.buttonDtModify.TabIndex = 6;
@@ -1013,7 +1013,7 @@
             // buttonDtRefresh
             // 
             this.buttonDtRefresh.Location = new System.Drawing.Point(270, 36);
-            this.buttonDtRefresh.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDtRefresh.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDtRefresh.Name = "buttonDtRefresh";
             this.buttonDtRefresh.Size = new System.Drawing.Size(82, 39);
             this.buttonDtRefresh.TabIndex = 5;
@@ -1024,7 +1024,7 @@
             // buttonDtDelete
             // 
             this.buttonDtDelete.Location = new System.Drawing.Point(378, 36);
-            this.buttonDtDelete.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonDtDelete.Margin = new System.Windows.Forms.Padding(4);
             this.buttonDtDelete.Name = "buttonDtDelete";
             this.buttonDtDelete.Size = new System.Drawing.Size(82, 39);
             this.buttonDtDelete.TabIndex = 5;
@@ -1058,7 +1058,7 @@
             "国轩托盘信息表",
             "国轩电芯信息表"});
             this.comboBoxDtName.Location = new System.Drawing.Point(9, 45);
-            this.comboBoxDtName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDtName.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDtName.Name = "comboBoxDtName";
             this.comboBoxDtName.Size = new System.Drawing.Size(210, 26);
             this.comboBoxDtName.TabIndex = 3;
@@ -1095,10 +1095,10 @@
             this.tabPage4.Controls.Add(this.buttonClosePlc);
             this.tabPage4.Controls.Add(this.buttonConnectPlc);
             this.tabPage4.Location = new System.Drawing.Point(4, 28);
-            this.tabPage4.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage4.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage4.Name = "tabPage4";
-            this.tabPage4.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage4.Size = new System.Drawing.Size(1111, 672);
+            this.tabPage4.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage4.Size = new System.Drawing.Size(1112, 672);
             this.tabPage4.TabIndex = 3;
             this.tabPage4.Text = "PLC";
             // 
@@ -1109,7 +1109,7 @@
             "重新实现MC协议",
             "PLC控件"});
             this.comboBoxPlcObjList.Location = new System.Drawing.Point(154, 22);
-            this.comboBoxPlcObjList.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxPlcObjList.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPlcObjList.Name = "comboBoxPlcObjList";
             this.comboBoxPlcObjList.Size = new System.Drawing.Size(210, 26);
             this.comboBoxPlcObjList.TabIndex = 16;
@@ -1118,7 +1118,7 @@
             // button1
             // 
             this.button1.Location = new System.Drawing.Point(48, 392);
-            this.button1.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.button1.Margin = new System.Windows.Forms.Padding(4);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(174, 54);
             this.button1.TabIndex = 15;
@@ -1128,7 +1128,7 @@
             // richTextBoxMultiDBVal
             // 
             this.richTextBoxMultiDBVal.Location = new System.Drawing.Point(446, 142);
-            this.richTextBoxMultiDBVal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBoxMultiDBVal.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxMultiDBVal.Name = "richTextBoxMultiDBVal";
             this.richTextBoxMultiDBVal.Size = new System.Drawing.Size(547, 182);
             this.richTextBoxMultiDBVal.TabIndex = 14;
@@ -1217,7 +1217,7 @@
             // textBoxCodeVal
             // 
             this.textBoxCodeVal.Location = new System.Drawing.Point(446, 388);
-            this.textBoxCodeVal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCodeVal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCodeVal.Name = "textBoxCodeVal";
             this.textBoxCodeVal.Size = new System.Drawing.Size(196, 28);
             this.textBoxCodeVal.TabIndex = 11;
@@ -1225,7 +1225,7 @@
             // textBoxCode
             // 
             this.textBoxCode.Location = new System.Drawing.Point(446, 348);
-            this.textBoxCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCode.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCode.Name = "textBoxCode";
             this.textBoxCode.Size = new System.Drawing.Size(487, 28);
             this.textBoxCode.TabIndex = 11;
@@ -1233,7 +1233,7 @@
             // textBoxPlcPort
             // 
             this.textBoxPlcPort.Location = new System.Drawing.Point(807, 21);
-            this.textBoxPlcPort.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlcPort.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlcPort.Name = "textBoxPlcPort";
             this.textBoxPlcPort.Size = new System.Drawing.Size(90, 28);
             this.textBoxPlcPort.TabIndex = 11;
@@ -1242,7 +1242,7 @@
             // textBoxPlcIP
             // 
             this.textBoxPlcIP.Location = new System.Drawing.Point(500, 22);
-            this.textBoxPlcIP.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlcIP.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlcIP.Name = "textBoxPlcIP";
             this.textBoxPlcIP.Size = new System.Drawing.Size(212, 28);
             this.textBoxPlcIP.TabIndex = 11;
@@ -1251,7 +1251,7 @@
             // textBoxPlcVal
             // 
             this.textBoxPlcVal.Location = new System.Drawing.Point(136, 200);
-            this.textBoxPlcVal.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlcVal.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlcVal.Name = "textBoxPlcVal";
             this.textBoxPlcVal.Size = new System.Drawing.Size(84, 28);
             this.textBoxPlcVal.TabIndex = 11;
@@ -1259,7 +1259,7 @@
             // textBoxPlcBlockNum
             // 
             this.textBoxPlcBlockNum.Location = new System.Drawing.Point(136, 338);
-            this.textBoxPlcBlockNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlcBlockNum.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlcBlockNum.Name = "textBoxPlcBlockNum";
             this.textBoxPlcBlockNum.Size = new System.Drawing.Size(84, 28);
             this.textBoxPlcBlockNum.TabIndex = 12;
@@ -1268,7 +1268,7 @@
             // textBoxPlcAddrStart
             // 
             this.textBoxPlcAddrStart.Location = new System.Drawing.Point(136, 297);
-            this.textBoxPlcAddrStart.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlcAddrStart.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlcAddrStart.Name = "textBoxPlcAddrStart";
             this.textBoxPlcAddrStart.Size = new System.Drawing.Size(84, 28);
             this.textBoxPlcAddrStart.TabIndex = 12;
@@ -1277,7 +1277,7 @@
             // textBoxPlcAddr
             // 
             this.textBoxPlcAddr.Location = new System.Drawing.Point(136, 154);
-            this.textBoxPlcAddr.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPlcAddr.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPlcAddr.Name = "textBoxPlcAddr";
             this.textBoxPlcAddr.Size = new System.Drawing.Size(84, 28);
             this.textBoxPlcAddr.TabIndex = 12;
@@ -1287,7 +1287,7 @@
             // 
             this.buttonWritePlc.Enabled = false;
             this.buttonWritePlc.Location = new System.Drawing.Point(248, 202);
-            this.buttonWritePlc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonWritePlc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonWritePlc.Name = "buttonWritePlc";
             this.buttonWritePlc.Size = new System.Drawing.Size(135, 46);
             this.buttonWritePlc.TabIndex = 10;
@@ -1299,7 +1299,7 @@
             // 
             this.buttonReadPlc.Enabled = false;
             this.buttonReadPlc.Location = new System.Drawing.Point(248, 142);
-            this.buttonReadPlc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonReadPlc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonReadPlc.Name = "buttonReadPlc";
             this.buttonReadPlc.Size = new System.Drawing.Size(135, 51);
             this.buttonReadPlc.TabIndex = 7;
@@ -1310,7 +1310,7 @@
             // buttonGetCode
             // 
             this.buttonGetCode.Location = new System.Drawing.Point(446, 434);
-            this.buttonGetCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonGetCode.Margin = new System.Windows.Forms.Padding(4);
             this.buttonGetCode.Name = "buttonGetCode";
             this.buttonGetCode.Size = new System.Drawing.Size(135, 54);
             this.buttonGetCode.TabIndex = 8;
@@ -1321,7 +1321,7 @@
             // buttonPLCDBReset
             // 
             this.buttonPLCDBReset.Location = new System.Drawing.Point(248, 398);
-            this.buttonPLCDBReset.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonPLCDBReset.Margin = new System.Windows.Forms.Padding(4);
             this.buttonPLCDBReset.Name = "buttonPLCDBReset";
             this.buttonPLCDBReset.Size = new System.Drawing.Size(135, 54);
             this.buttonPLCDBReset.TabIndex = 8;
@@ -1332,7 +1332,7 @@
             // buttonMultiWritePlc
             // 
             this.buttonMultiWritePlc.Location = new System.Drawing.Point(248, 334);
-            this.buttonMultiWritePlc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMultiWritePlc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMultiWritePlc.Name = "buttonMultiWritePlc";
             this.buttonMultiWritePlc.Size = new System.Drawing.Size(135, 54);
             this.buttonMultiWritePlc.TabIndex = 8;
@@ -1343,7 +1343,7 @@
             // buttonMultiReadPlc
             // 
             this.buttonMultiReadPlc.Location = new System.Drawing.Point(248, 273);
-            this.buttonMultiReadPlc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMultiReadPlc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMultiReadPlc.Name = "buttonMultiReadPlc";
             this.buttonMultiReadPlc.Size = new System.Drawing.Size(135, 54);
             this.buttonMultiReadPlc.TabIndex = 8;
@@ -1355,7 +1355,7 @@
             // 
             this.buttonClosePlc.Enabled = false;
             this.buttonClosePlc.Location = new System.Drawing.Point(248, 80);
-            this.buttonClosePlc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClosePlc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClosePlc.Name = "buttonClosePlc";
             this.buttonClosePlc.Size = new System.Drawing.Size(206, 54);
             this.buttonClosePlc.TabIndex = 8;
@@ -1366,7 +1366,7 @@
             // buttonConnectPlc
             // 
             this.buttonConnectPlc.Location = new System.Drawing.Point(16, 80);
-            this.buttonConnectPlc.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonConnectPlc.Margin = new System.Windows.Forms.Padding(4);
             this.buttonConnectPlc.Name = "buttonConnectPlc";
             this.buttonConnectPlc.Size = new System.Drawing.Size(206, 54);
             this.buttonConnectPlc.TabIndex = 9;
@@ -1380,10 +1380,10 @@
             this.tb_ForceToOut.Controls.Add(this.groupBox9);
             this.tb_ForceToOut.Controls.Add(this.groupBox8);
             this.tb_ForceToOut.Location = new System.Drawing.Point(4, 28);
-            this.tb_ForceToOut.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_ForceToOut.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ForceToOut.Name = "tb_ForceToOut";
-            this.tb_ForceToOut.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tb_ForceToOut.Size = new System.Drawing.Size(1111, 672);
+            this.tb_ForceToOut.Padding = new System.Windows.Forms.Padding(4);
+            this.tb_ForceToOut.Size = new System.Drawing.Size(1112, 672);
             this.tb_ForceToOut.TabIndex = 4;
             this.tb_ForceToOut.Text = "强制出库";
             // 
@@ -1402,9 +1402,9 @@
             this.groupBox9.Controls.Add(this.cb_MultiTaskType);
             this.groupBox9.Controls.Add(this.label37);
             this.groupBox9.Location = new System.Drawing.Point(16, 208);
-            this.groupBox9.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox9.Name = "groupBox9";
-            this.groupBox9.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox9.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox9.Size = new System.Drawing.Size(639, 244);
             this.groupBox9.TabIndex = 10;
             this.groupBox9.TabStop = false;
@@ -1434,7 +1434,7 @@
             // tb_LayerthNum
             // 
             this.tb_LayerthNum.Location = new System.Drawing.Point(144, 196);
-            this.tb_LayerthNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_LayerthNum.Margin = new System.Windows.Forms.Padding(4);
             this.tb_LayerthNum.Name = "tb_LayerthNum";
             this.tb_LayerthNum.Size = new System.Drawing.Size(178, 28);
             this.tb_LayerthNum.TabIndex = 14;
@@ -1452,7 +1452,7 @@
             // tb_ColumnNum
             // 
             this.tb_ColumnNum.Location = new System.Drawing.Point(144, 156);
-            this.tb_ColumnNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_ColumnNum.Margin = new System.Windows.Forms.Padding(4);
             this.tb_ColumnNum.Name = "tb_ColumnNum";
             this.tb_ColumnNum.Size = new System.Drawing.Size(178, 28);
             this.tb_ColumnNum.TabIndex = 12;
@@ -1470,7 +1470,7 @@
             // tb_RowthNum
             // 
             this.tb_RowthNum.Location = new System.Drawing.Point(144, 116);
-            this.tb_RowthNum.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_RowthNum.Margin = new System.Windows.Forms.Padding(4);
             this.tb_RowthNum.Name = "tb_RowthNum";
             this.tb_RowthNum.Size = new System.Drawing.Size(178, 28);
             this.tb_RowthNum.TabIndex = 10;
@@ -1478,7 +1478,7 @@
             // bt_CreateMultiTask
             // 
             this.bt_CreateMultiTask.Location = new System.Drawing.Point(402, 142);
-            this.bt_CreateMultiTask.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_CreateMultiTask.Margin = new System.Windows.Forms.Padding(4);
             this.bt_CreateMultiTask.Name = "bt_CreateMultiTask";
             this.bt_CreateMultiTask.Size = new System.Drawing.Size(180, 86);
             this.bt_CreateMultiTask.TabIndex = 9;
@@ -1495,7 +1495,7 @@
             "按列出库",
             "按层出库"});
             this.cb_OutStorageRegular.Location = new System.Drawing.Point(144, 76);
-            this.cb_OutStorageRegular.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_OutStorageRegular.Margin = new System.Windows.Forms.Padding(4);
             this.cb_OutStorageRegular.Name = "cb_OutStorageRegular";
             this.cb_OutStorageRegular.Size = new System.Drawing.Size(180, 26);
             this.cb_OutStorageRegular.TabIndex = 7;
@@ -1516,7 +1516,7 @@
             this.cb_MultiTaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_MultiTaskType.FormattingEnabled = true;
             this.cb_MultiTaskType.Location = new System.Drawing.Point(144, 38);
-            this.cb_MultiTaskType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_MultiTaskType.Margin = new System.Windows.Forms.Padding(4);
             this.cb_MultiTaskType.Name = "cb_MultiTaskType";
             this.cb_MultiTaskType.Size = new System.Drawing.Size(180, 26);
             this.cb_MultiTaskType.TabIndex = 5;
@@ -1540,9 +1540,9 @@
             this.groupBox8.Controls.Add(this.label35);
             this.groupBox8.Controls.Add(this.tb_OutGoodsSiteName);
             this.groupBox8.Location = new System.Drawing.Point(16, 16);
-            this.groupBox8.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Margin = new System.Windows.Forms.Padding(4);
             this.groupBox8.Name = "groupBox8";
-            this.groupBox8.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.groupBox8.Padding = new System.Windows.Forms.Padding(4);
             this.groupBox8.Size = new System.Drawing.Size(639, 172);
             this.groupBox8.TabIndex = 9;
             this.groupBox8.TabStop = false;
@@ -1551,7 +1551,7 @@
             // bt_ForceCreate
             // 
             this.bt_ForceCreate.Location = new System.Drawing.Point(402, 30);
-            this.bt_ForceCreate.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_ForceCreate.Margin = new System.Windows.Forms.Padding(4);
             this.bt_ForceCreate.Name = "bt_ForceCreate";
             this.bt_ForceCreate.Size = new System.Drawing.Size(180, 86);
             this.bt_ForceCreate.TabIndex = 5;
@@ -1575,7 +1575,7 @@
             this.cb_TaskType.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_TaskType.FormattingEnabled = true;
             this.cb_TaskType.Location = new System.Drawing.Point(159, 32);
-            this.cb_TaskType.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_TaskType.Margin = new System.Windows.Forms.Padding(4);
             this.cb_TaskType.Name = "cb_TaskType";
             this.cb_TaskType.Size = new System.Drawing.Size(180, 26);
             this.cb_TaskType.TabIndex = 3;
@@ -1603,7 +1603,7 @@
             // tb_OutGoodsSiteName
             // 
             this.tb_OutGoodsSiteName.Location = new System.Drawing.Point(160, 84);
-            this.tb_OutGoodsSiteName.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_OutGoodsSiteName.Margin = new System.Windows.Forms.Padding(4);
             this.tb_OutGoodsSiteName.Name = "tb_OutGoodsSiteName";
             this.tb_OutGoodsSiteName.Size = new System.Drawing.Size(178, 28);
             this.tb_OutGoodsSiteName.TabIndex = 6;
@@ -1613,9 +1613,9 @@
             this.tabPage3.BackColor = System.Drawing.SystemColors.GradientActiveCaption;
             this.tabPage3.Controls.Add(this.panelPalletFillinfo);
             this.tabPage3.Location = new System.Drawing.Point(4, 28);
-            this.tabPage3.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage3.Name = "tabPage3";
-            this.tabPage3.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage3.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage3.Size = new System.Drawing.Size(1112, 672);
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "装载信息";
@@ -1650,7 +1650,7 @@
             this.panelPalletFillinfo.Controls.Add(this.label1);
             this.panelPalletFillinfo.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelPalletFillinfo.Location = new System.Drawing.Point(4, 4);
-            this.panelPalletFillinfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.panelPalletFillinfo.Margin = new System.Windows.Forms.Padding(4);
             this.panelPalletFillinfo.Name = "panelPalletFillinfo";
             this.panelPalletFillinfo.Size = new System.Drawing.Size(1104, 664);
             this.panelPalletFillinfo.TabIndex = 0;
@@ -1659,7 +1659,7 @@
             // 
             this.buttonMultiLoad_BL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonMultiLoad_BL.Location = new System.Drawing.Point(818, 586);
-            this.buttonMultiLoad_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonMultiLoad_BL.Margin = new System.Windows.Forms.Padding(4);
             this.buttonMultiLoad_BL.Name = "buttonMultiLoad_BL";
             this.buttonMultiLoad_BL.Size = new System.Drawing.Size(232, 68);
             this.buttonMultiLoad_BL.TabIndex = 7;
@@ -1672,7 +1672,7 @@
             this.checkBoxBatchNumEnable_BL.AutoSize = true;
             this.checkBoxBatchNumEnable_BL.Font = new System.Drawing.Font("宋体", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
             this.checkBoxBatchNumEnable_BL.Location = new System.Drawing.Point(492, 36);
-            this.checkBoxBatchNumEnable_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxBatchNumEnable_BL.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxBatchNumEnable_BL.Name = "checkBoxBatchNumEnable_BL";
             this.checkBoxBatchNumEnable_BL.Size = new System.Drawing.Size(436, 28);
             this.checkBoxBatchNumEnable_BL.TabIndex = 6;
@@ -1709,7 +1709,7 @@
             // buttonExistCheck
             // 
             this.buttonExistCheck.Location = new System.Drawing.Point(458, 86);
-            this.buttonExistCheck.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonExistCheck.Margin = new System.Windows.Forms.Padding(4);
             this.buttonExistCheck.Name = "buttonExistCheck";
             this.buttonExistCheck.Size = new System.Drawing.Size(141, 48);
             this.buttonExistCheck.TabIndex = 4;
@@ -1720,7 +1720,7 @@
             // buttonGetFillInfo_BL
             // 
             this.buttonGetFillInfo_BL.Location = new System.Drawing.Point(621, 84);
-            this.buttonGetFillInfo_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonGetFillInfo_BL.Margin = new System.Windows.Forms.Padding(4);
             this.buttonGetFillInfo_BL.Name = "buttonGetFillInfo_BL";
             this.buttonGetFillInfo_BL.Size = new System.Drawing.Size(141, 48);
             this.buttonGetFillInfo_BL.TabIndex = 4;
@@ -1731,7 +1731,7 @@
             // buttonTrayUninstall
             // 
             this.buttonTrayUninstall.Location = new System.Drawing.Point(765, 84);
-            this.buttonTrayUninstall.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonTrayUninstall.Margin = new System.Windows.Forms.Padding(4);
             this.buttonTrayUninstall.Name = "buttonTrayUninstall";
             this.buttonTrayUninstall.Size = new System.Drawing.Size(122, 46);
             this.buttonTrayUninstall.TabIndex = 4;
@@ -1742,7 +1742,7 @@
             // buttonClear_BL
             // 
             this.buttonClear_BL.Location = new System.Drawing.Point(898, 84);
-            this.buttonClear_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClear_BL.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClear_BL.Name = "buttonClear_BL";
             this.buttonClear_BL.Size = new System.Drawing.Size(122, 46);
             this.buttonClear_BL.TabIndex = 4;
@@ -1754,7 +1754,7 @@
             // 
             this.buttonModifyFillinfo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonModifyFillinfo.Location = new System.Drawing.Point(586, 586);
-            this.buttonModifyFillinfo.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonModifyFillinfo.Margin = new System.Windows.Forms.Padding(4);
             this.buttonModifyFillinfo.Name = "buttonModifyFillinfo";
             this.buttonModifyFillinfo.Size = new System.Drawing.Size(176, 68);
             this.buttonModifyFillinfo.TabIndex = 4;
@@ -1767,7 +1767,7 @@
             // 
             this.buttonAddFillinfo_BL.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
             this.buttonAddFillinfo_BL.Location = new System.Drawing.Point(260, 588);
-            this.buttonAddFillinfo_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonAddFillinfo_BL.Margin = new System.Windows.Forms.Padding(4);
             this.buttonAddFillinfo_BL.Name = "buttonAddFillinfo_BL";
             this.buttonAddFillinfo_BL.Size = new System.Drawing.Size(260, 68);
             this.buttonAddFillinfo_BL.TabIndex = 4;
@@ -1795,7 +1795,7 @@
             this.Col11,
             this.Col12});
             this.dataGridViewBatterys_BL.Location = new System.Drawing.Point(130, 267);
-            this.dataGridViewBatterys_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridViewBatterys_BL.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewBatterys_BL.Name = "dataGridViewBatterys_BL";
             this.dataGridViewBatterys_BL.RowTemplate.Height = 23;
             this.dataGridViewBatterys_BL.Size = new System.Drawing.Size(968, 310);
@@ -1883,7 +1883,7 @@
             "初入库",
             "二次分容入库"});
             this.comboBoxDBset_BL.Location = new System.Drawing.Point(273, 36);
-            this.comboBoxDBset_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxDBset_BL.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxDBset_BL.Name = "comboBoxDBset_BL";
             this.comboBoxDBset_BL.Size = new System.Drawing.Size(180, 26);
             this.comboBoxDBset_BL.TabIndex = 2;
@@ -1893,7 +1893,7 @@
             // 
             this.comboBoxBatch_BL.FormattingEnabled = true;
             this.comboBoxBatch_BL.Location = new System.Drawing.Point(273, 184);
-            this.comboBoxBatch_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxBatch_BL.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxBatch_BL.Name = "comboBoxBatch_BL";
             this.comboBoxBatch_BL.Size = new System.Drawing.Size(180, 26);
             this.comboBoxBatch_BL.TabIndex = 2;
@@ -1902,7 +1902,7 @@
             // 
             this.textBoxCurrentBatch_BL.Enabled = false;
             this.textBoxCurrentBatch_BL.Location = new System.Drawing.Point(640, 183);
-            this.textBoxCurrentBatch_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxCurrentBatch_BL.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxCurrentBatch_BL.Name = "textBoxCurrentBatch_BL";
             this.textBoxCurrentBatch_BL.Size = new System.Drawing.Size(136, 28);
             this.textBoxCurrentBatch_BL.TabIndex = 1;
@@ -1911,7 +1911,7 @@
             // textBoxTrayID_BL
             // 
             this.textBoxTrayID_BL.Location = new System.Drawing.Point(273, 100);
-            this.textBoxTrayID_BL.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxTrayID_BL.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxTrayID_BL.Name = "textBoxTrayID_BL";
             this.textBoxTrayID_BL.Size = new System.Drawing.Size(174, 28);
             this.textBoxTrayID_BL.TabIndex = 1;
@@ -2054,10 +2054,10 @@
             this.tabPage5.Controls.Add(this.label15);
             this.tabPage5.Controls.Add(this.label14);
             this.tabPage5.Location = new System.Drawing.Point(4, 28);
-            this.tabPage5.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage5.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage5.Name = "tabPage5";
-            this.tabPage5.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage5.Size = new System.Drawing.Size(1112, 672);
+            this.tabPage5.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage5.Size = new System.Drawing.Size(1294, 672);
             this.tabPage5.TabIndex = 6;
             this.tabPage5.Text = "入库口缓存信息";
             // 
@@ -2083,7 +2083,7 @@
             "分容后入库口",
             "B1库入库口"});
             this.comboBoxPortin.Location = new System.Drawing.Point(84, 171);
-            this.comboBoxPortin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxPortin.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxPortin.Name = "comboBoxPortin";
             this.comboBoxPortin.Size = new System.Drawing.Size(180, 26);
             this.comboBoxPortin.TabIndex = 3;
@@ -2092,7 +2092,7 @@
             // buttonSaveTrays_portin
             // 
             this.buttonSaveTrays_portin.Location = new System.Drawing.Point(84, 266);
-            this.buttonSaveTrays_portin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonSaveTrays_portin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonSaveTrays_portin.Name = "buttonSaveTrays_portin";
             this.buttonSaveTrays_portin.Size = new System.Drawing.Size(182, 54);
             this.buttonSaveTrays_portin.TabIndex = 2;
@@ -2103,7 +2103,7 @@
             // buttonRefreshTrays_portin
             // 
             this.buttonRefreshTrays_portin.Location = new System.Drawing.Point(84, 210);
-            this.buttonRefreshTrays_portin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonRefreshTrays_portin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonRefreshTrays_portin.Name = "buttonRefreshTrays_portin";
             this.buttonRefreshTrays_portin.Size = new System.Drawing.Size(182, 54);
             this.buttonRefreshTrays_portin.TabIndex = 2;
@@ -2114,7 +2114,7 @@
             // buttonClearTrays_portin
             // 
             this.buttonClearTrays_portin.Location = new System.Drawing.Point(84, 326);
-            this.buttonClearTrays_portin.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClearTrays_portin.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClearTrays_portin.Name = "buttonClearTrays_portin";
             this.buttonClearTrays_portin.Size = new System.Drawing.Size(182, 60);
             this.buttonClearTrays_portin.TabIndex = 2;
@@ -2125,7 +2125,7 @@
             // richTextBoxPortIn
             // 
             this.richTextBoxPortIn.Location = new System.Drawing.Point(294, 171);
-            this.richTextBoxPortIn.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBoxPortIn.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxPortIn.Name = "richTextBoxPortIn";
             this.richTextBoxPortIn.Size = new System.Drawing.Size(592, 212);
             this.richTextBoxPortIn.TabIndex = 1;
@@ -2168,9 +2168,9 @@
             this.tabPage6.Controls.Add(this.textBoxPallet_RDRecord);
             this.tabPage6.Controls.Add(this.dataGridView_RDRecord);
             this.tabPage6.Location = new System.Drawing.Point(4, 28);
-            this.tabPage6.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage6.Name = "tabPage6";
-            this.tabPage6.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage6.Padding = new System.Windows.Forms.Padding(4);
             this.tabPage6.Size = new System.Drawing.Size(1112, 672);
             this.tabPage6.TabIndex = 7;
             this.tabPage6.Text = "读卡记录";
@@ -2190,7 +2190,7 @@
             // 
             this.checkBoxPalletSet_RDRecord.AutoSize = true;
             this.checkBoxPalletSet_RDRecord.Location = new System.Drawing.Point(20, 14);
-            this.checkBoxPalletSet_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxPalletSet_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxPalletSet_RDRecord.Name = "checkBoxPalletSet_RDRecord";
             this.checkBoxPalletSet_RDRecord.Size = new System.Drawing.Size(124, 22);
             this.checkBoxPalletSet_RDRecord.TabIndex = 7;
@@ -2210,7 +2210,7 @@
             "二次检测区",
             "机械手3分拣区"});
             this.comboBoxReader_RDRecord.Location = new System.Drawing.Point(708, 8);
-            this.comboBoxReader_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.comboBoxReader_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.comboBoxReader_RDRecord.Name = "comboBoxReader_RDRecord";
             this.comboBoxReader_RDRecord.Size = new System.Drawing.Size(222, 26);
             this.comboBoxReader_RDRecord.TabIndex = 6;
@@ -2219,7 +2219,7 @@
             // 
             this.checkBoxReaderSet_RDRecord.AutoSize = true;
             this.checkBoxReaderSet_RDRecord.Location = new System.Drawing.Point(536, 12);
-            this.checkBoxReaderSet_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxReaderSet_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxReaderSet_RDRecord.Name = "checkBoxReaderSet_RDRecord";
             this.checkBoxReaderSet_RDRecord.Size = new System.Drawing.Size(142, 22);
             this.checkBoxReaderSet_RDRecord.TabIndex = 5;
@@ -2230,7 +2230,7 @@
             // 
             this.checkBoxTimespanSet_RDRecord.AutoSize = true;
             this.checkBoxTimespanSet_RDRecord.Location = new System.Drawing.Point(20, 57);
-            this.checkBoxTimespanSet_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.checkBoxTimespanSet_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.checkBoxTimespanSet_RDRecord.Name = "checkBoxTimespanSet_RDRecord";
             this.checkBoxTimespanSet_RDRecord.Size = new System.Drawing.Size(124, 22);
             this.checkBoxTimespanSet_RDRecord.TabIndex = 5;
@@ -2240,7 +2240,7 @@
             // dateTimePickerEnd_RDRecord
             // 
             this.dateTimePickerEnd_RDRecord.Location = new System.Drawing.Point(484, 50);
-            this.dateTimePickerEnd_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerEnd_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerEnd_RDRecord.Name = "dateTimePickerEnd_RDRecord";
             this.dateTimePickerEnd_RDRecord.Size = new System.Drawing.Size(222, 28);
             this.dateTimePickerEnd_RDRecord.TabIndex = 4;
@@ -2248,7 +2248,7 @@
             // dateTimePickerStart_RDRecord
             // 
             this.dateTimePickerStart_RDRecord.Location = new System.Drawing.Point(195, 50);
-            this.dateTimePickerStart_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dateTimePickerStart_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.dateTimePickerStart_RDRecord.Name = "dateTimePickerStart_RDRecord";
             this.dateTimePickerStart_RDRecord.Size = new System.Drawing.Size(222, 28);
             this.dateTimePickerStart_RDRecord.TabIndex = 4;
@@ -2276,7 +2276,7 @@
             // buttonClear_RDRecord
             // 
             this.buttonClear_RDRecord.Location = new System.Drawing.Point(224, 105);
-            this.buttonClear_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClear_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClear_RDRecord.Name = "buttonClear_RDRecord";
             this.buttonClear_RDRecord.Size = new System.Drawing.Size(182, 50);
             this.buttonClear_RDRecord.TabIndex = 2;
@@ -2286,7 +2286,7 @@
             // buttonQuery_RDRecord
             // 
             this.buttonQuery_RDRecord.Location = new System.Drawing.Point(16, 105);
-            this.buttonQuery_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonQuery_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.buttonQuery_RDRecord.Name = "buttonQuery_RDRecord";
             this.buttonQuery_RDRecord.Size = new System.Drawing.Size(182, 50);
             this.buttonQuery_RDRecord.TabIndex = 2;
@@ -2297,7 +2297,7 @@
             // textBoxPallet_RDRecord
             // 
             this.textBoxPallet_RDRecord.Location = new System.Drawing.Point(195, 9);
-            this.textBoxPallet_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.textBoxPallet_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.textBoxPallet_RDRecord.Name = "textBoxPallet_RDRecord";
             this.textBoxPallet_RDRecord.Size = new System.Drawing.Size(172, 28);
             this.textBoxPallet_RDRecord.TabIndex = 1;
@@ -2309,7 +2309,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.dataGridView_RDRecord.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView_RDRecord.Location = new System.Drawing.Point(0, 164);
-            this.dataGridView_RDRecord.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dataGridView_RDRecord.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridView_RDRecord.Name = "dataGridView_RDRecord";
             this.dataGridView_RDRecord.RowTemplate.Height = 23;
             this.dataGridView_RDRecord.Size = new System.Drawing.Size(1108, 435);
@@ -2331,10 +2331,10 @@
             this.tabPage7.Controls.Add(this.cb_DBStoreHouse);
             this.tabPage7.Controls.Add(this.label66);
             this.tabPage7.Location = new System.Drawing.Point(4, 28);
-            this.tabPage7.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tabPage7.Margin = new System.Windows.Forms.Padding(4);
             this.tabPage7.Name = "tabPage7";
-            this.tabPage7.Padding = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.tabPage7.Size = new System.Drawing.Size(1111, 672);
+            this.tabPage7.Padding = new System.Windows.Forms.Padding(4);
+            this.tabPage7.Size = new System.Drawing.Size(1112, 672);
             this.tabPage7.TabIndex = 8;
             this.tabPage7.Text = "手动入库";
             this.tabPage7.UseVisualStyleBackColor = true;
@@ -2352,7 +2352,7 @@
             // dtp_DBInHoustTime
             // 
             this.dtp_DBInHoustTime.Location = new System.Drawing.Point(477, 80);
-            this.dtp_DBInHoustTime.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.dtp_DBInHoustTime.Margin = new System.Windows.Forms.Padding(4);
             this.dtp_DBInHoustTime.Name = "dtp_DBInHoustTime";
             this.dtp_DBInHoustTime.Size = new System.Drawing.Size(178, 28);
             this.dtp_DBInHoustTime.TabIndex = 34;
@@ -2381,7 +2381,7 @@
             // tb_DBFrameCode
             // 
             this.tb_DBFrameCode.Location = new System.Drawing.Point(135, 134);
-            this.tb_DBFrameCode.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_DBFrameCode.Margin = new System.Windows.Forms.Padding(4);
             this.tb_DBFrameCode.Name = "tb_DBFrameCode";
             this.tb_DBFrameCode.Size = new System.Drawing.Size(520, 28);
             this.tb_DBFrameCode.TabIndex = 30;
@@ -2391,7 +2391,7 @@
             this.cb_DBProductStatus.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cb_DBProductStatus.FormattingEnabled = true;
             this.cb_DBProductStatus.Location = new System.Drawing.Point(135, 78);
-            this.cb_DBProductStatus.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_DBProductStatus.Margin = new System.Windows.Forms.Padding(4);
             this.cb_DBProductStatus.Name = "cb_DBProductStatus";
             this.cb_DBProductStatus.Size = new System.Drawing.Size(170, 26);
             this.cb_DBProductStatus.TabIndex = 27;
@@ -2409,7 +2409,7 @@
             // bt_add
             // 
             this.bt_add.Location = new System.Drawing.Point(33, 249);
-            this.bt_add.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.bt_add.Margin = new System.Windows.Forms.Padding(4);
             this.bt_add.Name = "bt_add";
             this.bt_add.Size = new System.Drawing.Size(207, 34);
             this.bt_add.TabIndex = 24;
@@ -2441,7 +2441,7 @@
             // tb_DBGSPos
             // 
             this.tb_DBGSPos.Location = new System.Drawing.Point(477, 32);
-            this.tb_DBGSPos.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.tb_DBGSPos.Margin = new System.Windows.Forms.Padding(4);
             this.tb_DBGSPos.Name = "tb_DBGSPos";
             this.tb_DBGSPos.Size = new System.Drawing.Size(178, 28);
             this.tb_DBGSPos.TabIndex = 21;
@@ -2454,7 +2454,7 @@
             "A1库房",
             "B1库房"});
             this.cb_DBStoreHouse.Location = new System.Drawing.Point(135, 36);
-            this.cb_DBStoreHouse.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.cb_DBStoreHouse.Margin = new System.Windows.Forms.Padding(4);
             this.cb_DBStoreHouse.Name = "cb_DBStoreHouse";
             this.cb_DBStoreHouse.Size = new System.Drawing.Size(169, 26);
             this.cb_DBStoreHouse.TabIndex = 20;
@@ -2485,16 +2485,16 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBoxLog.Location = new System.Drawing.Point(0, 27);
-            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.richTextBoxLog.Margin = new System.Windows.Forms.Padding(4);
             this.richTextBoxLog.Name = "richTextBoxLog";
-            this.richTextBoxLog.Size = new System.Drawing.Size(1113, 103);
+            this.richTextBoxLog.Size = new System.Drawing.Size(931, 101);
             this.richTextBoxLog.TabIndex = 0;
             this.richTextBoxLog.Text = "";
             // 
             // buttonClearLog
             // 
             this.buttonClearLog.Location = new System.Drawing.Point(22, -4);
-            this.buttonClearLog.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.buttonClearLog.Margin = new System.Windows.Forms.Padding(4);
             this.buttonClearLog.Name = "buttonClearLog";
             this.buttonClearLog.Size = new System.Drawing.Size(112, 36);
             this.buttonClearLog.TabIndex = 1;
@@ -2511,7 +2511,7 @@
             this.ClientSize = new System.Drawing.Size(1329, 848);
             this.Controls.Add(this.splitContainer1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "TestModuleForm";
             this.Text = "控制层测试";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form1_FormClosing);

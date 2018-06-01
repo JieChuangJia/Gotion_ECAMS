@@ -158,7 +158,7 @@ namespace ECAMSDataAccess
         /// </summary>
         /// <param name="palletRfid">料框RFID</param>
         /// <param name="processStatus">检测过程状态</param>
-        /// <returns></returns>
+        /// <returns>1:OK,2:NG,3:空</returns>
         public byte[] GetOcvCheckResult(string palletRfid, string processStatus)
         {
             byte[] checkResult = new byte[48];

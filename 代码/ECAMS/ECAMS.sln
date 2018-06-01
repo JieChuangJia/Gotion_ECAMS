@@ -27,6 +27,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LicenceManager", "LicenceMa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DECTest", "DECTest\DECTest.csproj", "{13A4818D-B6C9-478D-8949-6E25ACB9F717}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ManualFillAssist", "ManualFillAssist\ManualFillAssist.csproj", "{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -158,6 +160,17 @@ Global
 		{13A4818D-B6C9-478D-8949-6E25ACB9F717}.Release|Mixed Platforms.Build.0 = Release|x86
 		{13A4818D-B6C9-478D-8949-6E25ACB9F717}.Release|x86.ActiveCfg = Release|x86
 		{13A4818D-B6C9-478D-8949-6E25ACB9F717}.Release|x86.Build.0 = Release|x86
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Debug|Mixed Platforms.ActiveCfg = Debug|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Debug|Mixed Platforms.Build.0 = Debug|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Release|Mixed Platforms.ActiveCfg = Release|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Release|Mixed Platforms.Build.0 = Release|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Release|x86.ActiveCfg = Release|Any CPU
+		{BF2B7881-9A9F-4E29-A1CD-BCF527845D54}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
