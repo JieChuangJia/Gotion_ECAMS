@@ -13,6 +13,7 @@ namespace ManualFillAssist
     public partial class Form1 : Form
     {
         #region 数据
+        private string version = "版本：v1.0.0 2018-06-02";
         private readonly TB_Batch_IndexBll bllBatchIndex = new TB_Batch_IndexBll();
         private readonly TB_Tray_indexBll bllTrayIndex = new TB_Tray_indexBll();
         private readonly LogBll bllLog = new LogBll();
@@ -37,6 +38,7 @@ namespace ManualFillAssist
 
         private void Form1_Load(object sender, EventArgs e)
         {
+            this.label4.Text = version;
             this.comboBoxDBset_BL.Items.AddRange(new string[]{"初入库","二次分容入库"});
             this.comboBoxDBset_BL.SelectedIndex = 0;
 
@@ -297,12 +299,12 @@ namespace ManualFillAssist
             }
             string palletID = this.textBoxTrayID_BL.Text.ToUpper().Trim();
 
-            string batchID = this.comboBoxBatch_BL.Text;
-            if (string.IsNullOrWhiteSpace(batchID))
-            {
-                MessageBox.Show("请选择批次信息");
-                return;
-            }
+            //string batchID = this.comboBoxBatch_BL.Text;
+            //if (string.IsNullOrWhiteSpace(batchID))
+            //{
+            //    MessageBox.Show("请选择批次信息");
+            //    return;
+            //}
             string dbSet = this.comboBoxDBset_BL.Text;
             if (string.IsNullOrWhiteSpace(dbSet))
             {
@@ -340,7 +342,30 @@ namespace ManualFillAssist
                         index++;
                     }
                 }
-                string reStr = "";
+                string batchID = "";
+                //1 重码检查
+                string reStr="";
+                if(BarcodeRepetition(batteryIDS,ref reStr))
+                {
+                    labelWarn.Text = reStr;
+                    Console.WriteLine(reStr);
+                    return;
+                }
+                //2 混批检查
+                if(0 !=BatchParse(batteryIDS,ref batchID,ref reStr))
+                {
+                    labelWarn.Text = reStr;
+                    Console.WriteLine("混批检查失败,{0}", reStr);
+                    return;
+                }
+                //3 托盘解绑
+                if(!TrayUninstall(palletID, ref reStr))
+                {
+                    Console.WriteLine("解绑托盘{0}失败,{1}", palletID, reStr);
+                    return;
+                }
+                //4 装载
+
                 if (dbSet == "初入库")
                 {
                     //if (gxTrayBll.Exists(palletID))
@@ -364,7 +389,7 @@ namespace ManualFillAssist
                 else if (dbSet == "二次分容入库")
                 {
                     //先解绑
-                    TrayUninstall(palletID, ref reStr);
+                  //  
                     RecordFillInfoToLocal(palletID, batchID, batteryIDS, ref reStr);
                     bool batchNumEnable = false;
                     if (this.checkBoxBatchNumEnable_BL.Checked)
@@ -688,6 +713,113 @@ namespace ManualFillAssist
             {
                 e.Cancel = true;
                
+            }
+        }
+        private bool BarcodeRepetition(string[] batteryIDS, ref string reStr)
+        {
+            reStr = "";
+            int repeatCounter = 0;
+            for (int i = 0; i < batteryIDS.Count()-1; i++)
+            {
+                if(string.IsNullOrWhiteSpace(batteryIDS[i]))
+                {
+                    continue;
+                }
+                string batteryID = batteryIDS[i];
+                for (int j = i + 1; j < batteryIDS.Count() - 1; j++)
+                {
+                    string targetBatteryID = batteryIDS[j];
+                    if(string.IsNullOrWhiteSpace(targetBatteryID))
+                    {
+                        continue;
+                    }
+                    if (batteryID.ToUpper() == targetBatteryID.ToUpper())
+                    {
+                        //reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
+                        //return true;
+                        reStr = reStr + string.Format("{0}:{1},",i+1,j+1);
+                        repeatCounter++;
+                    }
+                }
+            }
+            if(repeatCounter>0)
+            {
+                reStr = "电芯码重复，位置标号：" + reStr;
+                return true;
+            }
+            return false;
+        }
+        /// <summary>
+        /// 批次检测,如果有不同批，不存在的批次，均返回错误代码
+        /// </summary>
+        /// <param name="batteryIDS"></param>
+        /// <param name="bat"></param>
+        /// <returns>0：正常，1：批次不存在，2：存在不同批,3:批次为空,4:其它错误</returns>
+        private int BatchParse(string[] batteryIDS, ref string batchID, ref string reStr)
+        {
+            int re = 0;
+            try
+            {
+                batchID = "";
+                string lastBatchID = "";
+
+                for (int i = 0; i < batteryIDS.Count(); i++)
+                {
+                    //if (!System.Text.RegularExpressions.Regex.IsMatch(batteryIDS[i], @"^[a-zA-Z0-9-]{13,13}$"))
+                    //{
+                    //    continue;
+                    //}
+                    // batchID = batteryIDS[i].Substring(2, 5);
+                    if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
+                    {
+                        continue;
+                    }
+                    if (batteryIDS[i].Length == 12)
+                    {
+                        batchID = batteryIDS[i].Substring(2, 5);
+                    }
+                    else
+                    {
+                        batchID = batteryIDS[i].Substring(0, 7);
+                    }
+                    if (!string.IsNullOrWhiteSpace(batchID))
+                    {
+                        if (!string.IsNullOrWhiteSpace(lastBatchID))
+                        {
+                            if (batchID.ToUpper() != lastBatchID.ToUpper())
+                            {
+                                reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
+                                re = 2;
+                                return re;
+                            }
+                        }
+                        lastBatchID = batchID;
+                    }
+                    //if (gxBatchBll.Exists(batchID))
+                    //{
+                    //    break;
+                    //}
+                }
+                if (string.IsNullOrWhiteSpace(batchID))
+                {
+                    re = 3;
+                    return re;
+                }
+                if (gxBatchBll.Exists(batchID))
+                {
+                    reStr = string.Format("批次:{0}不存在", batchID);
+                    re = 1;
+                    return re;
+                }
+
+                re = 0;
+                return re;
+            }
+            catch (Exception ex)
+            {
+                reStr = ex.ToString();
+                re = 4;
+                return re;
             }
         }
     }

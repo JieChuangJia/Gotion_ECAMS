@@ -1410,7 +1410,7 @@ namespace ECAMS
         private TB_After_GradeDataBll gxBatteryBll = new TB_After_GradeDataBll();
         private void InitFillInfoUI()
         {
-            
+            this.comboBoxBatch_BL.Items.Clear();
             List<TB_Batch_IndexModel> batchList = gxBatchBll.GetModelList(" ");
             if (batchList == null || batchList.Count < 1)
             {

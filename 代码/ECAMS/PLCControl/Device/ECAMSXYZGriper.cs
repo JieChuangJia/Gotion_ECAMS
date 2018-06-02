@@ -1206,12 +1206,20 @@ namespace PLCControl
         }
         private bool BarcodeRepetition(string[] batteryIDS,ref string reStr)
         {
-             for (int i = 0; i < batteryIDS.Count(); i++)
+             for (int i = 0; i < batteryIDS.Count()-1; i++)
              {
                  string batteryID = batteryIDS[i];
+                 if (string.IsNullOrWhiteSpace(batteryID))
+                 {
+                     continue;
+                 }
                  for(int j=i+1;j<batteryIDS.Count()-1;j++)
                  {
                      string targetBatteryID = batteryIDS[j];
+                     if (string.IsNullOrWhiteSpace(targetBatteryID))
+                     {
+                         continue;
+                     }
                      if(batteryID.ToUpper()== targetBatteryID.ToUpper())
                      {
                          reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);

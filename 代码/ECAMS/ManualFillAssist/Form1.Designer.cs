@@ -49,6 +49,14 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
+            this.comboBoxBatch_BL = new System.Windows.Forms.ComboBox();
+            this.textBoxCurrentBatch_BL = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.checkBoxBatchNumEnable_BL = new System.Windows.Forms.CheckBox();
+            this.comboBoxDBset_BL = new System.Windows.Forms.ComboBox();
+            this.label26 = new System.Windows.Forms.Label();
+            this.labelWarn = new System.Windows.Forms.Label();
             this.buttonAddFillinfo_BL = new System.Windows.Forms.Button();
             this.buttonExistCheck = new System.Windows.Forms.Button();
             this.buttonGetFillInfo_BL = new System.Windows.Forms.Button();
@@ -60,14 +68,7 @@
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.toolStrip1 = new System.Windows.Forms.ToolStrip();
             this.toolStripButton1 = new System.Windows.Forms.ToolStripButton();
-            this.labelWarn = new System.Windows.Forms.Label();
-            this.comboBoxDBset_BL = new System.Windows.Forms.ComboBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.checkBoxBatchNumEnable_BL = new System.Windows.Forms.CheckBox();
-            this.comboBoxBatch_BL = new System.Windows.Forms.ComboBox();
-            this.textBoxCurrentBatch_BL = new System.Windows.Forms.TextBox();
-            this.label13 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.splitContainer1)).BeginInit();
             this.splitContainer1.Panel1.SuspendLayout();
             this.splitContainer1.Panel2.SuspendLayout();
@@ -96,7 +97,7 @@
             // splitContainer1.Panel2
             // 
             this.splitContainer1.Panel2.Controls.Add(this.panel1);
-            this.splitContainer1.Size = new System.Drawing.Size(1297, 668);
+            this.splitContainer1.Size = new System.Drawing.Size(1432, 668);
             this.splitContainer1.SplitterDistance = 488;
             this.splitContainer1.TabIndex = 0;
             // 
@@ -106,7 +107,7 @@
             this.panel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel2.Location = new System.Drawing.Point(0, 0);
             this.panel2.Name = "panel2";
-            this.panel2.Size = new System.Drawing.Size(1297, 488);
+            this.panel2.Size = new System.Drawing.Size(1432, 488);
             this.panel2.TabIndex = 0;
             // 
             // tableLayoutPanel1
@@ -124,7 +125,7 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 185F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1297, 488);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1432, 488);
             this.tableLayoutPanel1.TabIndex = 0;
             // 
             // dataGridViewBatterys_BL
@@ -148,7 +149,7 @@
             this.dataGridViewBatterys_BL.Margin = new System.Windows.Forms.Padding(4);
             this.dataGridViewBatterys_BL.Name = "dataGridViewBatterys_BL";
             this.dataGridViewBatterys_BL.RowTemplate.Height = 23;
-            this.dataGridViewBatterys_BL.Size = new System.Drawing.Size(1178, 295);
+            this.dataGridViewBatterys_BL.Size = new System.Drawing.Size(1313, 295);
             this.dataGridViewBatterys_BL.TabIndex = 4;
             this.dataGridViewBatterys_BL.CellEnter += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewBatterys_BL_CellEnter);
             this.dataGridViewBatterys_BL.KeyDown += new System.Windows.Forms.KeyEventHandler(this.dataGridViewBatterys_BL_KeyDown);
@@ -257,6 +258,7 @@
             // 
             this.panel4.BackColor = System.Drawing.SystemColors.ActiveCaption;
             this.tableLayoutPanel1.SetColumnSpan(this.panel4, 2);
+            this.panel4.Controls.Add(this.label4);
             this.panel4.Controls.Add(this.comboBoxBatch_BL);
             this.panel4.Controls.Add(this.textBoxCurrentBatch_BL);
             this.panel4.Controls.Add(this.label13);
@@ -275,8 +277,98 @@
             this.panel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel4.Location = new System.Drawing.Point(3, 3);
             this.panel4.Name = "panel4";
-            this.panel4.Size = new System.Drawing.Size(1291, 179);
+            this.panel4.Size = new System.Drawing.Size(1426, 179);
             this.panel4.TabIndex = 6;
+            // 
+            // comboBoxBatch_BL
+            // 
+            this.comboBoxBatch_BL.FormattingEnabled = true;
+            this.comboBoxBatch_BL.Location = new System.Drawing.Point(221, 170);
+            this.comboBoxBatch_BL.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxBatch_BL.Name = "comboBoxBatch_BL";
+            this.comboBoxBatch_BL.Size = new System.Drawing.Size(180, 32);
+            this.comboBoxBatch_BL.TabIndex = 21;
+            this.comboBoxBatch_BL.Visible = false;
+            // 
+            // textBoxCurrentBatch_BL
+            // 
+            this.textBoxCurrentBatch_BL.Enabled = false;
+            this.textBoxCurrentBatch_BL.Location = new System.Drawing.Point(221, 127);
+            this.textBoxCurrentBatch_BL.Margin = new System.Windows.Forms.Padding(4);
+            this.textBoxCurrentBatch_BL.Name = "textBoxCurrentBatch_BL";
+            this.textBoxCurrentBatch_BL.Size = new System.Drawing.Size(136, 35);
+            this.textBoxCurrentBatch_BL.TabIndex = 20;
+            // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label13.ForeColor = System.Drawing.Color.Black;
+            this.label13.Location = new System.Drawing.Point(53, 133);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(106, 24);
+            this.label13.TabIndex = 18;
+            this.label13.Text = "当前批次";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label6.ForeColor = System.Drawing.Color.Black;
+            this.label6.Location = new System.Drawing.Point(53, 177);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(154, 24);
+            this.label6.TabIndex = 19;
+            this.label6.Text = "重新设定批次";
+            this.label6.Visible = false;
+            // 
+            // checkBoxBatchNumEnable_BL
+            // 
+            this.checkBoxBatchNumEnable_BL.AutoSize = true;
+            this.checkBoxBatchNumEnable_BL.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.checkBoxBatchNumEnable_BL.Location = new System.Drawing.Point(66, 16);
+            this.checkBoxBatchNumEnable_BL.Margin = new System.Windows.Forms.Padding(4);
+            this.checkBoxBatchNumEnable_BL.Name = "checkBoxBatchNumEnable_BL";
+            this.checkBoxBatchNumEnable_BL.Size = new System.Drawing.Size(420, 28);
+            this.checkBoxBatchNumEnable_BL.TabIndex = 17;
+            this.checkBoxBatchNumEnable_BL.Text = "该托盘电池是否计入该批次电池总数";
+            this.checkBoxBatchNumEnable_BL.UseVisualStyleBackColor = true;
+            this.checkBoxBatchNumEnable_BL.CheckedChanged += new System.EventHandler(this.checkBoxBatchNumEnable_BL_CheckedChanged);
+            // 
+            // comboBoxDBset_BL
+            // 
+            this.comboBoxDBset_BL.FormattingEnabled = true;
+            this.comboBoxDBset_BL.Location = new System.Drawing.Point(221, 45);
+            this.comboBoxDBset_BL.Margin = new System.Windows.Forms.Padding(4);
+            this.comboBoxDBset_BL.Name = "comboBoxDBset_BL";
+            this.comboBoxDBset_BL.Size = new System.Drawing.Size(260, 32);
+            this.comboBoxDBset_BL.TabIndex = 16;
+            // 
+            // label26
+            // 
+            this.label26.AutoSize = true;
+            this.label26.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
+            this.label26.ForeColor = System.Drawing.Color.Black;
+            this.label26.Location = new System.Drawing.Point(53, 53);
+            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.label26.Name = "label26";
+            this.label26.Size = new System.Drawing.Size(106, 24);
+            this.label26.TabIndex = 15;
+            this.label26.Text = "入库类型";
+            // 
+            // labelWarn
+            // 
+            this.labelWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.labelWarn.ForeColor = System.Drawing.Color.Red;
+            this.labelWarn.Location = new System.Drawing.Point(1066, 53);
+            this.labelWarn.Name = "labelWarn";
+            this.labelWarn.Size = new System.Drawing.Size(339, 109);
+            this.labelWarn.TabIndex = 14;
+            this.labelWarn.Text = "提示：";
             // 
             // buttonAddFillinfo_BL
             // 
@@ -368,7 +460,7 @@
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panel1.Location = new System.Drawing.Point(0, 0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(1297, 176);
+            this.panel1.Size = new System.Drawing.Size(1432, 176);
             this.panel1.TabIndex = 0;
             this.panel1.Paint += new System.Windows.Forms.PaintEventHandler(this.panel1_Paint);
             // 
@@ -379,7 +471,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.richTextBox1.Location = new System.Drawing.Point(0, 34);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(1297, 139);
+            this.richTextBox1.Size = new System.Drawing.Size(1432, 139);
             this.richTextBox1.TabIndex = 1;
             this.richTextBox1.Text = "";
             // 
@@ -391,7 +483,7 @@
             this.toolStripButton1});
             this.toolStrip1.Location = new System.Drawing.Point(0, 0);
             this.toolStrip1.Name = "toolStrip1";
-            this.toolStrip1.Size = new System.Drawing.Size(1297, 31);
+            this.toolStrip1.Size = new System.Drawing.Size(1432, 31);
             this.toolStrip1.TabIndex = 0;
             this.toolStrip1.Text = "toolStrip1";
             // 
@@ -403,101 +495,20 @@
             this.toolStripButton1.Size = new System.Drawing.Size(110, 28);
             this.toolStripButton1.Text = "清空日志";
             // 
-            // labelWarn
+            // label4
             // 
-            this.labelWarn.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.labelWarn.ForeColor = System.Drawing.Color.Red;
-            this.labelWarn.Location = new System.Drawing.Point(1066, 16);
-            this.labelWarn.Name = "labelWarn";
-            this.labelWarn.Size = new System.Drawing.Size(204, 146);
-            this.labelWarn.TabIndex = 14;
-            this.labelWarn.Text = "提示：";
-            // 
-            // comboBoxDBset_BL
-            // 
-            this.comboBoxDBset_BL.FormattingEnabled = true;
-            this.comboBoxDBset_BL.Location = new System.Drawing.Point(221, 45);
-            this.comboBoxDBset_BL.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxDBset_BL.Name = "comboBoxDBset_BL";
-            this.comboBoxDBset_BL.Size = new System.Drawing.Size(260, 32);
-            this.comboBoxDBset_BL.TabIndex = 16;
-            // 
-            // label26
-            // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label26.ForeColor = System.Drawing.Color.Black;
-            this.label26.Location = new System.Drawing.Point(53, 53);
-            this.label26.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(106, 24);
-            this.label26.TabIndex = 15;
-            this.label26.Text = "入库类型";
-            // 
-            // checkBoxBatchNumEnable_BL
-            // 
-            this.checkBoxBatchNumEnable_BL.AutoSize = true;
-            this.checkBoxBatchNumEnable_BL.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.checkBoxBatchNumEnable_BL.Location = new System.Drawing.Point(66, 16);
-            this.checkBoxBatchNumEnable_BL.Margin = new System.Windows.Forms.Padding(4);
-            this.checkBoxBatchNumEnable_BL.Name = "checkBoxBatchNumEnable_BL";
-            this.checkBoxBatchNumEnable_BL.Size = new System.Drawing.Size(420, 28);
-            this.checkBoxBatchNumEnable_BL.TabIndex = 17;
-            this.checkBoxBatchNumEnable_BL.Text = "该托盘电池是否计入该批次电池总数";
-            this.checkBoxBatchNumEnable_BL.UseVisualStyleBackColor = true;
-            this.checkBoxBatchNumEnable_BL.CheckedChanged += new System.EventHandler(this.checkBoxBatchNumEnable_BL_CheckedChanged);
-            // 
-            // comboBoxBatch_BL
-            // 
-            this.comboBoxBatch_BL.FormattingEnabled = true;
-            this.comboBoxBatch_BL.Location = new System.Drawing.Point(221, 170);
-            this.comboBoxBatch_BL.Margin = new System.Windows.Forms.Padding(4);
-            this.comboBoxBatch_BL.Name = "comboBoxBatch_BL";
-            this.comboBoxBatch_BL.Size = new System.Drawing.Size(180, 32);
-            this.comboBoxBatch_BL.TabIndex = 21;
-            this.comboBoxBatch_BL.Visible = false;
-            // 
-            // textBoxCurrentBatch_BL
-            // 
-            this.textBoxCurrentBatch_BL.Enabled = false;
-            this.textBoxCurrentBatch_BL.Location = new System.Drawing.Point(221, 127);
-            this.textBoxCurrentBatch_BL.Margin = new System.Windows.Forms.Padding(4);
-            this.textBoxCurrentBatch_BL.Name = "textBoxCurrentBatch_BL";
-            this.textBoxCurrentBatch_BL.Size = new System.Drawing.Size(136, 35);
-            this.textBoxCurrentBatch_BL.TabIndex = 20;
-            // 
-            // label13
-            // 
-            this.label13.AutoSize = true;
-            this.label13.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label13.ForeColor = System.Drawing.Color.Black;
-            this.label13.Location = new System.Drawing.Point(53, 133);
-            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(106, 24);
-            this.label13.TabIndex = 18;
-            this.label13.Text = "当前批次";
-            // 
-            // label6
-            // 
-            this.label6.AutoSize = true;
-            this.label6.Font = new System.Drawing.Font("黑体", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(134)));
-            this.label6.ForeColor = System.Drawing.Color.Black;
-            this.label6.Location = new System.Drawing.Point(53, 177);
-            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(154, 24);
-            this.label6.TabIndex = 19;
-            this.label6.Text = "重新设定批次";
-            this.label6.Visible = false;
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1077, 13);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(82, 24);
+            this.label4.TabIndex = 22;
+            this.label4.Text = "版本：";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1297, 668);
+            this.ClientSize = new System.Drawing.Size(1432, 668);
             this.Controls.Add(this.splitContainer1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
@@ -564,6 +575,7 @@
         private System.Windows.Forms.TextBox textBoxCurrentBatch_BL;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label4;
     }
 }
 
