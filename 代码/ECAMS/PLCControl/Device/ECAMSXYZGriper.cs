@@ -112,6 +112,22 @@ namespace PLCControl
             commData.DataAddr = dbName + plcAddrStart.ToString();//
             plcAddrStart++;
             dicCommuDataDB1[commData.CommuID] = commData;
+            if(this.devModel.DeviceID == "5001" )
+            {
+                for (int i = 0; i < 48; i++)
+                {
+                    commData = new DevCommDatatype();
+                    commData.CommuID = db1ID++;
+                    commData.CommuMethod = EnumCommMethod.PLC_MIT_COMMU;
+                    commData.DataByteLen = 2;
+                    commData.DataDescription = "电芯" + (i + 1).ToString() + "合格信息,0:正常,1:重码，2：混批，3：电芯码空";
+                    commData.DataTypeDef = EnumCommuDataType.DEVCOM_short;
+                    commData.Val = 0;
+                    commData.DataAddr = dbName + plcAddrStart.ToString();//
+                    plcAddrStart++;
+                    dicCommuDataDB1[commData.CommuID] = commData;
+                }
+            }
         }
         protected override void AllocDevComAddrsDB2()
         {
@@ -449,6 +465,7 @@ namespace PLCControl
                                 if (string.IsNullOrEmpty(batteryID) || batteryID.Length<12)
                                 {
                                     AddLog(devName + "读取电芯条码错误,位置" + (i + 1).ToString() + ",读到的条码为空或不足12位：" + batteryID, EnumLogType.错误);
+                                    this.dicCommuDataDB1[6 + i].Val = 3;
                                     continue;
                                     
                                 }
@@ -1144,7 +1161,7 @@ namespace PLCControl
             {
                 batchID = "";
                 string lastBatchID = "";
-
+                bool batchMulti = false;
                 for (int i = 0; i < batteryIDS.Count(); i++)
                 {
                     //if (!System.Text.RegularExpressions.Regex.IsMatch(batteryIDS[i], @"^[a-zA-Z0-9-]{13,13}$"))
@@ -1170,9 +1187,10 @@ namespace PLCControl
                         {
                             if (batchID.ToUpper() != lastBatchID.ToUpper())
                             {
-                                reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
-                                re = 2;
-                                return re;
+                                batchMulti = true;
+                                //reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
+                                reStr = reStr + string.Format("{0},", i + 1);
+                                this.dicCommuDataDB1[6 + i].Val = 2;
                             }
                         }
                         lastBatchID = batchID;
@@ -1182,12 +1200,18 @@ namespace PLCControl
                     //    break;
                     //}
                 }
+                if(batchMulti)
+                {
+                    re = 2;
+                    reStr = "混批存在，位置：" + reStr;
+                    return re;
+                }
                 if(string.IsNullOrWhiteSpace(batchID))
                 {
                     re = 3;
                     return re;
                 }
-                if (gxBatchBll.Exists(batchID))
+                if (!gxBatchBll.Exists(batchID))
                 {
                     reStr = string.Format("批次:{0}不存在",  batchID);
                     re=1;
@@ -1206,28 +1230,38 @@ namespace PLCControl
         }
         private bool BarcodeRepetition(string[] batteryIDS,ref string reStr)
         {
-             for (int i = 0; i < batteryIDS.Count()-1; i++)
-             {
-                 string batteryID = batteryIDS[i];
-                 if (string.IsNullOrWhiteSpace(batteryID))
-                 {
-                     continue;
-                 }
-                 for(int j=i+1;j<batteryIDS.Count()-1;j++)
-                 {
-                     string targetBatteryID = batteryIDS[j];
-                     if (string.IsNullOrWhiteSpace(targetBatteryID))
-                     {
-                         continue;
-                     }
-                     if(batteryID.ToUpper()== targetBatteryID.ToUpper())
-                     {
-                         reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
-                         return true;
-                     }
-                 }
-             }
-             return false;
+            reStr = "";
+            int repeatCounter = 0;
+            for (int i = 0; i < batteryIDS.Count() - 1; i++)
+            {
+                if (string.IsNullOrWhiteSpace(batteryIDS[i]))
+                {
+                    continue;
+                }
+                string batteryID = batteryIDS[i];
+                for (int j = i + 1; j < batteryIDS.Count() - 1; j++)
+                {
+                    string targetBatteryID = batteryIDS[j];
+                    if (string.IsNullOrWhiteSpace(targetBatteryID))
+                    {
+                        continue;
+                    }
+                    if (batteryID.ToUpper() == targetBatteryID.ToUpper())
+                    {
+                        //reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
+                        //return true;
+                        reStr = reStr + string.Format("{0}:{1},", i + 1, j + 1);
+                        repeatCounter++;
+                        this.dicCommuDataDB1[6 + j].Val = 1;
+                    }
+                }
+            }
+            if (repeatCounter > 0)
+            {
+                reStr = "电芯码重复，位置标号：" + reStr;
+                return true;
+            }
+            return false;
         }
         #endregion
     }

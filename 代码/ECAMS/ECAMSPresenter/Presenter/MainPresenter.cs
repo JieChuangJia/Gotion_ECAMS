@@ -120,7 +120,7 @@ namespace ECAMSPresenter
                 TimeSpan ss= new TimeSpan(7,0,0,0);
                 DateTime firstLockTime = deadTime-ss;
                 TimeSpan s = deadTime - nowTime;
-                bllControlApply.CreateLimitTrigger(deadTime);//过期时间
+              //  bllControlApply.CreateLimitTrigger(deadTime);//过期时间
                 if (s.TotalDays < 15.0)
                 {
                     StringBuilder warnInfoBuild = new StringBuilder();
@@ -321,10 +321,11 @@ namespace ECAMSPresenter
             while (!monitorExit)
             {
                 Thread.Sleep(monitorTaskTime);
-                if ( DateTime.Now.Second == 15)//每一个小时检测一次
+                /* 数据库封锁触发器
+                if ( (DateTime.Now.Second) %10==0)//每一个小时检测一次
                 {
                     bllControlApply.CreateLimitTrigger(this.View.GetLicenceDate());//过期时间
-                }
+                }*/
                 if (monitorThreadRunning == false)
                 {
                     continue;

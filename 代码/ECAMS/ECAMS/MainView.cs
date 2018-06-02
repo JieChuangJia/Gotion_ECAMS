@@ -57,6 +57,7 @@ namespace ECAMS
         private string lastLogContent = string.Empty;//记录上一次的日志如果相同就不显示也不存数据库
         private string lastErrorLogContent = string.Empty;
         LicenceModel licenceModel = new LicenceModel(licenceFilePath);
+        LicenceModel licenseModel2 = new LicenceModel(AppDomain.CurrentDomain.BaseDirectory + @"gotionLicense2.lic");
         #endregion
 
         #region 初始化
@@ -77,6 +78,7 @@ namespace ECAMS
             IniLogTypeList();
             SetLogTypeLocation();
             licenceModel = licenceModel.LoadLicence();
+            licenseModel2 = licenseModel2.LoadLicence();
             //if (licenceModel == null)
             //{
             //    licenceModel = new LicenceModel();
@@ -589,15 +591,21 @@ namespace ECAMS
         {
             try
             {
+                DateTime deadTime =  DateTime.Parse("2015-03-19 08:00:00");
                 if (this.licenceModel != null && this.licenceModel.LicenceEndTime != null && this.licenceModel.LicenceEndTime != "")
                 {
-                    return DateTime.Parse(this.licenceModel.Decrypt(this.licenceModel.LicenceEndTime));
+                    deadTime=DateTime.Parse(this.licenceModel.Decrypt(this.licenceModel.LicenceEndTime));
                 }
-                else
+                if (this.licenseModel2 != null && this.licenseModel2.LicenceEndTime != null && this.licenseModel2.LicenceEndTime != "")
                 {
-                    DateTime deadTime = DateTime.Parse("2015-03-19 08:00:00");
-                    return deadTime;// DateTime.MinValue;
+                    DateTime deadTime2 = DateTime.Parse(this.licenseModel2.Decrypt(this.licenseModel2.LicenceEndTime));
+                    if(deadTime2<deadTime)
+                    {
+                        deadTime = deadTime2;
+                    }
                 }
+                
+                return deadTime;
             }
             catch(Exception ex)
             {
@@ -1278,15 +1286,14 @@ namespace ECAMS
             }
         }
         #endregion
-
-        private void licenceTime_Tick(object sender, EventArgs e)
+        private void LicenseCheck1()
         {
             string reStr = "";
-            if (licenceModel==null||!licenceModel.IsLicenceValid(ref reStr))
+            if (licenceModel == null || !licenceModel.IsLicenceValid(ref reStr))
             {
                 this.licenceTime.Enabled = false;
                 OnStop();//停止系统
-                AddLog(EnumLogCategory.管理层日志, EnumLogType.提示, "软件使用期限已到，然后激活系统！"+reStr);
+                AddLog(EnumLogCategory.管理层日志, EnumLogType.提示, "软件使用期限已到，然后激活系统！" + reStr);
                 ActivativeFormView activativeFrom = new ActivativeFormView(this.licenceModel);
                 activativeFrom.ShowDialog();
                 if (!activativeFrom.isLicenceValid)
@@ -1297,9 +1304,9 @@ namespace ECAMS
                 {
                     this.menuStrip1.Enabled = true;
                 }
-                    
+
                 this.licenceTime.Enabled = true;
-             
+
             }
 
             if (licenceModel != null)
@@ -1310,6 +1317,43 @@ namespace ECAMS
             {
                 MessageBox.Show("licence.lic文件丢失！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+        }
+        private void LicenseCheck2()
+        {
+            string reStr = "";
+            if (licenseModel2 == null || !licenseModel2.IsLicenceValid(ref reStr))
+            {
+                this.licenceTime.Enabled = false;
+                OnStop();//停止系统
+                AddLog(EnumLogCategory.管理层日志, EnumLogType.提示, "软件使用期限已到，然后激活系统！" + reStr);
+                ActivativeFormView activativeFrom = new ActivativeFormView(licenseModel2);
+                activativeFrom.ShowDialog();
+                if (!activativeFrom.isLicenceValid)
+                {
+                    this.menuStrip1.Enabled = false;
+                }
+                else
+                {
+                    this.menuStrip1.Enabled = true;
+                }
+
+                this.licenceTime.Enabled = true;
+
+            }
+
+            if (licenseModel2 != null)
+            {
+                licenseModel2.WriteLastRunTime();
+            }
+            else
+            {
+                MessageBox.Show("licence.lic文件丢失！", "信息提示", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+        }
+        private void licenceTime_Tick(object sender, EventArgs e)
+        {
+            LicenseCheck1();
+            LicenseCheck2();
         }
 
        
