@@ -13,7 +13,7 @@ namespace ManualFillAssist
     public partial class Form1 : Form
     {
         #region 数据
-        private string version = "版本：v1.0.0 2018-06-02";
+        private string version = "版本：v1.0.1 2018-06-02";
         private readonly TB_Batch_IndexBll bllBatchIndex = new TB_Batch_IndexBll();
         private readonly TB_Tray_indexBll bllTrayIndex = new TB_Tray_indexBll();
         private readonly LogBll bllLog = new LogBll();
@@ -59,40 +59,48 @@ namespace ManualFillAssist
 
         private void buttonExistCheck_Click(object sender, EventArgs e)
         {
-            string dbSet = this.comboBoxDBset_BL.Text;
-            if (string.IsNullOrWhiteSpace(dbSet))
+            try
             {
-                MessageBox.Show("未设定入库类型");
-                return;
+                string dbSet = this.comboBoxDBset_BL.Text;
+                if (string.IsNullOrWhiteSpace(dbSet))
+                {
+                    MessageBox.Show("未设定入库类型");
+                    return;
+                }
+                if (string.IsNullOrWhiteSpace(this.textBoxTrayID_BL.Text))
+                {
+                    MessageBox.Show("托盘id为空,请重新输入");
+                    return;
+                }
+                string palletID = this.textBoxTrayID_BL.Text.ToUpper().Trim();
+                if (dbSet == "初入库")
+                {
+                    if (palletBll.Exists(palletID))
+                    {
+                        this.labelWarn.Text = "该托盘装载信息已经存在";
+                    }
+                    else
+                    {
+                        this.labelWarn.Text = "该托盘装载信息不存在，可以补录";
+                    }
+                }
+                else if (dbSet == "二次分容入库")
+                {
+                    if (gxTrayBll.Exists(palletID))
+                    {
+                        this.labelWarn.Text = "该托盘装载信息已经存在";
+                    }
+                    else
+                    {
+                        this.labelWarn.Text = "该托盘装载信息不存在，可以补录";
+                    }
+                }
             }
-            if (string.IsNullOrWhiteSpace(this.textBoxTrayID_BL.Text))
+            catch (Exception ex)
             {
-                MessageBox.Show("托盘id为空,请重新输入");
-                return;
+                Console.WriteLine(ex.ToString());
             }
-            string palletID = this.textBoxTrayID_BL.Text.ToUpper().Trim();
-            if (dbSet == "初入库")
-            {
-                if (palletBll.Exists(palletID))
-                {
-                    this.labelWarn.Text = "该托盘装载信息已经存在";
-                }
-                else
-                {
-                    this.labelWarn.Text = "该托盘装载信息不存在，可以补录";
-                }
-            }
-            else if (dbSet == "二次分容入库")
-            {
-                if (gxTrayBll.Exists(palletID))
-                {
-                    this.labelWarn.Text = "该托盘装载信息已经存在";
-                }
-                else
-                {
-                    this.labelWarn.Text = "该托盘装载信息不存在，可以补录";
-                }
-            }
+           
         }
 
         private void buttonGetFillInfo_BL_Click(object sender, EventArgs e)
@@ -224,22 +232,30 @@ namespace ManualFillAssist
         }
         private void buttonTrayUninstall_Click(object sender, EventArgs e)
         {
-            string palletID = this.textBoxTrayID_BL.Text.ToUpper().Trim();
-            if (string.IsNullOrWhiteSpace(palletID))
+            try
             {
-                Console.WriteLine("托盘号为空!");
-                return;
-            }
-            if (DialogResult.No == PopAskBox("提示", "确实要解绑该托盘：" + palletID + "吗？"))
-            {
-                return;
-            }
-            string reStr = "";
-            TrayUninstall(palletID, ref reStr);
+                string palletID = this.textBoxTrayID_BL.Text.ToUpper().Trim();
+                if (string.IsNullOrWhiteSpace(palletID))
+                {
+                    Console.WriteLine("托盘号为空!");
+                    return;
+                }
+                if (DialogResult.No == PopAskBox("提示", "确实要解绑该托盘：" + palletID + "吗？"))
+                {
+                    return;
+                }
+                string reStr = "";
+                TrayUninstall(palletID, ref reStr);
 
-            //MessageBox.Show(reStr);
-            Console.WriteLine(reStr);
-            this.dataGridViewBatterys_BL.Rows.Clear();
+                //MessageBox.Show(reStr);
+                Console.WriteLine(reStr);
+                this.dataGridViewBatterys_BL.Rows.Clear();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+           
         }
         /// <summary>
         /// 托盘解绑
@@ -270,6 +286,7 @@ namespace ManualFillAssist
         }
         private void buttonClear_BL_Click(object sender, EventArgs e)
         {
+
             this.dataGridViewBatterys_BL.AllowUserToAddRows = true;
             this.dataGridViewBatterys_BL.Rows.Clear();
             this.labelWarn.Text = "提示：";
@@ -277,7 +294,15 @@ namespace ManualFillAssist
 
         private void buttonAddFillinfo_BL_Click(object sender, EventArgs e)
         {
-            ExeAddFillInfo();
+            try
+            {
+                ExeAddFillInfo();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.ToString());
+            }
+           
         }
         private void ExeAddFillInfo()
         {
@@ -805,7 +830,7 @@ namespace ManualFillAssist
                     re = 3;
                     return re;
                 }
-                if (gxBatchBll.Exists(batchID))
+                if (!gxBatchBll.Exists(batchID))
                 {
                     reStr = string.Format("批次:{0}不存在", batchID);
                     re = 1;
@@ -821,6 +846,48 @@ namespace ManualFillAssist
                 re = 4;
                 return re;
             }
+        }
+        protected override bool ProcessCmdKey(ref Message msg, Keys keyData) //激活回车键
+        {
+            if (this.dataGridViewBatterys_BL.Rows.Count > 4)
+            {
+                this.dataGridViewBatterys_BL.AllowUserToAddRows = false;
+
+            }
+            if (keyData == Keys.Enter)    //监听回车事件   
+            {
+
+                if (this.dataGridViewBatterys_BL.IsCurrentCellInEditMode)
+                {
+                    if (this.dataGridViewBatterys_BL.CurrentRow.Index < 3 && this.dataGridViewBatterys_BL.SelectedCells[0].ColumnIndex == 11)
+                    {
+                        int rowIndex = this.dataGridViewBatterys_BL.CurrentRow.Index + 1;
+                        if (rowIndex >= this.dataGridViewBatterys_BL.RowCount)
+                        {
+                            this.dataGridViewBatterys_BL.Rows.Add();
+
+                        }
+                        if (rowIndex >= this.dataGridViewBatterys_BL.RowCount)
+                        {
+                            return false;
+                        }
+                        this.dataGridViewBatterys_BL.CurrentCell = this.dataGridViewBatterys_BL[0, rowIndex];
+                        this.dataGridViewBatterys_BL.CurrentCell.Selected = true;
+                    }
+                    else
+                    {
+                        // SendKeys.Send("{Up}");
+                        SendKeys.Send("{Tab}");
+                        this.dataGridViewBatterys_BL.BeginEdit(true);
+                        return true;
+                    }
+
+                }
+
+            }
+
+            return base.ProcessCmdKey(ref msg, keyData);
+
         }
     }
 }
