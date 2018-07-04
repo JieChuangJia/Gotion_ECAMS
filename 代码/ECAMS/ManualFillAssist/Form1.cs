@@ -368,19 +368,45 @@ namespace ManualFillAssist
                     }
                 }
                 string batchID = "";
+
+                IList<string> errCells = null;
                 //1 重码检查
                 string reStr="";
-                if(BarcodeRepetition(batteryIDS,ref reStr))
+                if(BarcodeRepetition(batteryIDS,ref errCells,ref reStr))
                 {
                     labelWarn.Text = reStr;
                     Console.WriteLine(reStr);
+                   
+                    foreach(string strCell in errCells)
+                    {
+                        string[] strArray = strCell.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        if(strArray.Count()<2)
+                        {
+                            continue;
+                        }
+                        int row = int.Parse(strArray[0]);
+                        int col = int.Parse(strArray[1]);
+                        this.dataGridViewBatterys_BL.Rows[row].Cells[col].Style.BackColor = Color.Red;
+                    }
                     return;
                 }
                 //2 混批检查
-                if(0 !=BatchParse(batteryIDS,ref batchID,ref reStr))
+                if(0 !=BatchParse(batteryIDS,ref errCells,ref batchID,ref reStr))
                 {
                     labelWarn.Text = reStr;
                     Console.WriteLine("混批检查失败,{0}", reStr);
+                    foreach (string strCell in errCells)
+                    {
+                        string[] strArray = strCell.Split(new string[] { "," }, StringSplitOptions.RemoveEmptyEntries);
+                        if (strArray.Count() < 2)
+                        {
+                            continue;
+                        }
+                        int row = int.Parse(strArray[0]);
+                        int col = int.Parse(strArray[1]);
+                        this.dataGridViewBatterys_BL.Rows[row].Cells[col].Style.BackColor = Color.Red;
+                    }
+
                     return;
                 }
                 //3 托盘解绑
@@ -740,8 +766,9 @@ namespace ManualFillAssist
                
             }
         }
-        private bool BarcodeRepetition(string[] batteryIDS, ref string reStr)
+        private bool BarcodeRepetition(string[] batteryIDS, ref IList<string> errCelss,ref string reStr)
         {
+            errCelss = new List<string>();
             reStr = "";
             int repeatCounter = 0;
             for (int i = 0; i < batteryIDS.Count()-1; i++)
@@ -750,6 +777,8 @@ namespace ManualFillAssist
                 {
                     continue;
                 }
+                int row1 = (int)(i / 12);
+                int col1 = (int)(i % 12);
                 string batteryID = batteryIDS[i];
                 for (int j = i + 1; j < batteryIDS.Count() - 1; j++)
                 {
@@ -762,7 +791,11 @@ namespace ManualFillAssist
                     {
                         //reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
                         //return true;
-                        reStr = reStr + string.Format("{0}:{1},",i+1,j+1);
+                       
+                        int row2 = (int)(j / 12);
+                        int col2 = (int)(j % 12);
+                        reStr = reStr + string.Format("[{0},{1}]:[{2},{3},",row1,col1,row2,col2);
+                        errCelss.Add(string.Format("{0},{1}", row2, col2));
                         repeatCounter++;
                     }
                 }
@@ -780,8 +813,9 @@ namespace ManualFillAssist
         /// <param name="batteryIDS"></param>
         /// <param name="bat"></param>
         /// <returns>0：正常，1：批次不存在，2：存在不同批,3:批次为空,4:其它错误</returns>
-        private int BatchParse(string[] batteryIDS, ref string batchID, ref string reStr)
+        private int BatchParse(string[] batteryIDS,  ref IList<string> errCelss,ref string batchID, ref string reStr)
         {
+            errCelss = new List<string>();
             int re = 0;
             try
             {
@@ -795,6 +829,8 @@ namespace ManualFillAssist
                     //    continue;
                     //}
                     // batchID = batteryIDS[i].Substring(2, 5);
+                    int row1 = (int)(i / 12);
+                    int col1 = (int)(i % 12);
                     if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
                     {
                         continue;
@@ -813,7 +849,8 @@ namespace ManualFillAssist
                         {
                             if (batchID.ToUpper() != lastBatchID.ToUpper())
                             {
-                                reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
+                                reStr = string.Format("存在不同批,批次1:{0}，批次2：{1},电芯位置[{2},{3}]", lastBatchID, batchID,row1,col1);
+                                errCelss.Add(string.Format("{0},{1}", row1, col1));
                                 re = 2;
                                 return re;
                             }
