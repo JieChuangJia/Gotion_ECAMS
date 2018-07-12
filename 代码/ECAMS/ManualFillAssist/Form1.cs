@@ -13,7 +13,7 @@ namespace ManualFillAssist
     public partial class Form1 : Form
     {
         #region 数据
-        private string version = "版本：v1.0.1 2018-06-02";
+        private string version = "版本：v1.0.2 2018-07-05";
         private readonly TB_Batch_IndexBll bllBatchIndex = new TB_Batch_IndexBll();
         private readonly TB_Tray_indexBll bllTrayIndex = new TB_Tray_indexBll();
         private readonly LogBll bllLog = new LogBll();
@@ -384,8 +384,8 @@ namespace ManualFillAssist
                         {
                             continue;
                         }
-                        int row = int.Parse(strArray[0]);
-                        int col = int.Parse(strArray[1]);
+                        int row = int.Parse(strArray[0])-1;
+                        int col = int.Parse(strArray[1])-1;
                         this.dataGridViewBatterys_BL.Rows[row].Cells[col].Style.BackColor = Color.Red;
                     }
                     return;
@@ -402,8 +402,8 @@ namespace ManualFillAssist
                         {
                             continue;
                         }
-                        int row = int.Parse(strArray[0]);
-                        int col = int.Parse(strArray[1]);
+                        int row = int.Parse(strArray[0])-1;
+                        int col = int.Parse(strArray[1])-1;
                         this.dataGridViewBatterys_BL.Rows[row].Cells[col].Style.BackColor = Color.Red;
                     }
 
@@ -777,8 +777,8 @@ namespace ManualFillAssist
                 {
                     continue;
                 }
-                int row1 = (int)(i / 12);
-                int col1 = (int)(i % 12);
+                int row1 = (int)(i / 12)+1;
+                int col1 = (int)(i % 12)+1;
                 string batteryID = batteryIDS[i];
                 for (int j = i + 1; j < batteryIDS.Count() - 1; j++)
                 {
@@ -792,9 +792,9 @@ namespace ManualFillAssist
                         //reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
                         //return true;
                        
-                        int row2 = (int)(j / 12);
-                        int col2 = (int)(j % 12);
-                        reStr = reStr + string.Format("[{0},{1}]:[{2},{3},",row1,col1,row2,col2);
+                        int row2 = (int)(j / 12)+1;
+                        int col2 = (int)(j % 12)+1;
+                        reStr = reStr + string.Format("[{0},{1}]:[{2},{3}],",row1,col1,row2,col2);
                         errCelss.Add(string.Format("{0},{1}", row2, col2));
                         repeatCounter++;
                     }
@@ -820,7 +820,7 @@ namespace ManualFillAssist
             try
             {
                 batchID = "";
-                string lastBatchID = "";
+               // string lastBatchID = "";
 
                 for (int i = 0; i < batteryIDS.Count(); i++)
                 {
@@ -829,38 +829,56 @@ namespace ManualFillAssist
                     //    continue;
                     //}
                     // batchID = batteryIDS[i].Substring(2, 5);
-                    int row1 = (int)(i / 12);
-                    int col1 = (int)(i % 12);
+                    int row1 = (int)(i / 12)+1;
+                    int col1 = (int)(i % 12)+1;
                     if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
                     {
                         continue;
                     }
+                    if(string.IsNullOrWhiteSpace(batchID))
+                    {
+                        if (batteryIDS[i].Length == 12)
+                        {
+                            batchID = batteryIDS[i].Substring(2, 5);
+                        }
+                        else
+                        {
+                            batchID = batteryIDS[i].Substring(0, 7);
+                        }
+                        continue;
+                    }
+                    string cmpBatch = "";
                     if (batteryIDS[i].Length == 12)
                     {
-                        batchID = batteryIDS[i].Substring(2, 5);
+                        cmpBatch = batteryIDS[i].Substring(2, 5);
                     }
                     else
                     {
-                        batchID = batteryIDS[i].Substring(0, 7);
+                        cmpBatch = batteryIDS[i].Substring(0, 7);
                     }
                     if (!string.IsNullOrWhiteSpace(batchID))
                     {
-                        if (!string.IsNullOrWhiteSpace(lastBatchID))
+                        if (!string.IsNullOrWhiteSpace(cmpBatch))
                         {
-                            if (batchID.ToUpper() != lastBatchID.ToUpper())
+                            if (batchID.ToUpper() != cmpBatch.ToUpper())
                             {
-                                reStr = string.Format("存在不同批,批次1:{0}，批次2：{1},电芯位置[{2},{3}]", lastBatchID, batchID,row1,col1);
+                                reStr = reStr+string.Format("批次：{0},电芯位置[{1},{2}];", cmpBatch,row1,col1);
                                 errCelss.Add(string.Format("{0},{1}", row1, col1));
                                 re = 2;
-                                return re;
+                               
                             }
                         }
-                        lastBatchID = batchID;
+                        
                     }
                     //if (gxBatchBll.Exists(batchID))
                     //{
                     //    break;
                     //}
+                }
+                if(re == 2)
+                {
+                    reStr = "存在不同批，" + reStr;
+                    return re;
                 }
                 if (string.IsNullOrWhiteSpace(batchID))
                 {

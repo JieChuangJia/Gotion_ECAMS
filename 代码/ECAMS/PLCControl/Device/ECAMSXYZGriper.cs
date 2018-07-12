@@ -457,14 +457,14 @@ namespace PLCControl
                                     byteArray[2 * j + 1] = (byte)((val >> 8) & 0xff);
                                     commID++;
                                 }
-                                Array.Copy(byteArray, 1, idBytes, 0, 13); //由12位条码改为13位，modify by zwx,2015-07-22
+                                Array.Copy(byteArray, 0, idBytes, 0, 13); //由12位条码改为13位，modify by zwx,2015-07-22
                                 string batteryID = System.Text.Encoding.UTF8.GetString(idBytes);
                                 batteryID = batteryID.Trim();
                                 batteryID = batteryID.TrimStart('\0');
                                 batteryID = batteryID.TrimEnd('\0');
-                                if (string.IsNullOrEmpty(batteryID) || batteryID.Length<12)
+                                if (string.IsNullOrEmpty(batteryID) || batteryID.Length<13)
                                 {
-                                    AddLog(devName + "读取电芯条码错误,位置" + (i + 1).ToString() + ",读到的条码为空或不足12位：" + batteryID, EnumLogType.错误);
+                                    AddLog(devName + "读取电芯条码错误,位置" + (i + 1).ToString() + ",读到的条码为空或不足13位：" + batteryID, EnumLogType.错误);
                                     this.dicCommuDataDB1[6 + i].Val = 3;
                                     continue;
                                     
@@ -1169,15 +1169,15 @@ namespace PLCControl
                     //    continue;
                     //}
                     // batchID = batteryIDS[i].Substring(2, 5);
-                    if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
+                    if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 13)
                     {
                         continue;
                     }
-                    if (batteryIDS[i].Length == 12)
-                    {
-                        batchID = batteryIDS[i].Substring(2, 5);
-                    }
-                    else
+                    //if (batteryIDS[i].Length == 12)
+                    //{
+                    //    batchID = batteryIDS[i].Substring(2, 5);
+                    //}
+                    //else
                     {
                         batchID = batteryIDS[i].Substring(0, 7);
                     }
