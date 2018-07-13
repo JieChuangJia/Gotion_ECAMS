@@ -490,15 +490,15 @@ namespace PLCControl
                            // AddLog(DebugTemp, EnumLogType.调试信息); //
 
                             //判断是否重码
-                            if(BarcodeRepetition(batteryIDS,ref reStr))
+                            if(BarcodeRepetition(ref batteryIDS,ref reStr))
                             {
                                 taskCompletedReq = 6;
                                 currentTaskDescribe = "PLC任务完成:" + reStr;
                                 AddLog(devName + string.Format("装载错误，托盘号:{0},{1}", palletID, reStr), EnumLogType.错误);
-                                break;
+                              //  break; //不良品滤掉，继续判断
                             }
                             //解析批次信息
-                            int batParseRe = BatchParse(batteryIDS, ref batchID, ref reStr);
+                            int batParseRe = BatchParse(ref batteryIDS, ref batchID, ref reStr);
                             if(batParseRe>0)
                             {
                                 if (batParseRe == 3)//批次为空
@@ -527,7 +527,7 @@ namespace PLCControl
                                     AddLog(devName + string.Format("装载错误，托盘号:{0},{1}",palletID,reStr), EnumLogType.错误);
 
                                 }
-                                break;
+                                //   break; //不良品滤掉，继续上传
                             }
 
                             #region 原有批次判断逻辑
@@ -608,7 +608,7 @@ namespace PLCControl
                             ocvPalletBll.Add(palletModel);
                             for (int i = 0; i < 48; i++)
                             {
-                                if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
+                                if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 13)
                                 {
                                     continue;
                                 }
@@ -648,7 +648,6 @@ namespace PLCControl
                 case 5:
                     {
                         //信号置位：任务完成信息收到
-
                         taskCompletedReq = 2;
                         if (DevCmdCommit())
                         {
@@ -1154,7 +1153,7 @@ namespace PLCControl
         /// <param name="batteryIDS"></param>
         /// <param name="bat"></param>
         /// <returns>0：正常，1：批次不存在，2：存在不同批,3:批次为空,4:其它错误</returns>
-        private int BatchParse(string[] batteryIDS, ref string batchID, ref string reStr)
+        private int BatchParse(ref string[] batteryIDS, ref string batchID, ref string reStr)
         {
             int re = 0;
             try
@@ -1191,6 +1190,7 @@ namespace PLCControl
                                 //reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
                                 reStr = reStr + string.Format("{0},", i + 1);
                                 this.dicCommuDataDB1[6 + i].Val = 2;
+                                batteryIDS[i] = string.Empty;
                             }
                         }
                         lastBatchID = batchID;
@@ -1228,7 +1228,7 @@ namespace PLCControl
                 return re;
             }
         }
-        private bool BarcodeRepetition(string[] batteryIDS,ref string reStr)
+        private bool BarcodeRepetition(ref string[] batteryIDS,ref string reStr)
         {
             reStr = "";
             int repeatCounter = 0;
@@ -1248,6 +1248,7 @@ namespace PLCControl
                     }
                     if (batteryID.ToUpper() == targetBatteryID.ToUpper())
                     {
+                        batteryIDS[j] = string.Empty;
                         //reStr = string.Format("第{0}个电芯跟第{1}个电芯重码，{2}", i + 1, j + 1, batteryID);
                         //return true;
                         reStr = reStr + string.Format("{0}:{1},", i + 1, j + 1);
