@@ -447,9 +447,9 @@ namespace PLCControl
                             for (int i = 0; i < 48; i++)
                             {
                                 batteryIDS[i] = "";
-                                byte[] idBytes = new byte[13]; //由12位条码改为12/13位混用，modify by zwx,2015-07-22
-                                byte[] byteArray = new byte[14];
-                                for (int j = 0; j < 7; j++)
+                                byte[] idBytes = new byte[28]; //由12位条码改为12/13位混用，modify by zwx,2015-07-22
+                                byte[] byteArray = new byte[29];
+                                for (int j = 0; j < 12; j++)
                                 {
                                    
                                     int val = int.Parse(dicCommuDataDB2[commID].Val.ToString());
@@ -457,14 +457,15 @@ namespace PLCControl
                                     byteArray[2 * j + 1] = (byte)((val >> 8) & 0xff);
                                     commID++;
                                 }
-                                Array.Copy(byteArray, 0, idBytes, 0, 13); //由12位条码改为13位，modify by zwx,2015-07-22
+                                Array.Copy(byteArray, 0, idBytes, 0, 24); //由12位条码改为13位，modify by zwx,2015-07-22，2018-7-29改为24位
                                 string batteryID = System.Text.Encoding.UTF8.GetString(idBytes);
                                 batteryID = batteryID.Trim();
                                 batteryID = batteryID.TrimStart('\0');
                                 batteryID = batteryID.TrimEnd('\0');
-                                if (string.IsNullOrEmpty(batteryID) || batteryID.Length<13)
+                                if (string.IsNullOrEmpty(batteryID) || (batteryID.Length !=13) || (batteryID.Length != 24))
+                               // if (string.IsNullOrEmpty(batteryID) || batteryID.Length < 24)
                                 {
-                                    AddLog(devName + "读取电芯条码错误,位置" + (i + 1).ToString() + ",读到的条码为空或不足13位：" + batteryID, EnumLogType.错误);
+                                    AddLog(devName + "读取电芯条码错误,位置" + (i + 1).ToString() + ",读到的条码为空或不足13位,24位：" + batteryID, EnumLogType.错误);
                                     this.dicCommuDataDB1[6 + i].Val = 3;
                                     continue;
                                     
@@ -479,9 +480,10 @@ namespace PLCControl
                                 //    continue;
                                 //}
 
-                                if (batteryID.Length > 13)
+                               // if (batteryID.Length > 13)
+                                if (batteryID.Length > 24)
                                 {
-                                    batteryID = batteryID.Substring(0, 13);
+                                    batteryID = batteryID.Substring(0, 24);
                                 }
                                 batteryIDS[i] = batteryID;
                                // DebugTemp += (batteryID + ";");
@@ -490,17 +492,20 @@ namespace PLCControl
                            // AddLog(DebugTemp, EnumLogType.调试信息); //
 
                             //判断是否重码
+                            bool checkErr = false; //装载检查有异常
                             if(BarcodeRepetition(ref batteryIDS,ref reStr))
                             {
                                 taskCompletedReq = 6;
                                 currentTaskDescribe = "PLC任务完成:" + reStr;
                                 AddLog(devName + string.Format("装载错误，托盘号:{0},{1}", palletID, reStr), EnumLogType.错误);
+                                checkErr = true;
                               //  break; //不良品滤掉，继续判断
                             }
                             //解析批次信息
                             int batParseRe = BatchParse(ref batteryIDS, ref batchID, ref reStr);
                             if(batParseRe>0)
                             {
+                                checkErr = true;
                                 if (batParseRe == 3)//批次为空
                                 {
                                     taskCompletedReq = 4;
@@ -517,16 +522,7 @@ namespace PLCControl
                                 {
                                     taskCompletedReq = 5;
                                 }
-                                if (DevCmdCommit())
-                                {
-                                    currentTaskPhase = 6;
-                                    currentTask.TaskPhase = currentTaskPhase.ToString();
-                                    currentTask.TaskStatus = EnumTaskStatus.已完成.ToString();
-                                    ctlTaskBll.Update(currentTask);
-                                    currentTaskDescribe = "PLC任务完成:" + reStr;
-                                    AddLog(devName + string.Format("装载错误，托盘号:{0},{1}",palletID,reStr), EnumLogType.错误);
-
-                                }
+                               
                                 //   break; //不良品滤掉，继续上传
                             }
 
@@ -632,16 +628,38 @@ namespace PLCControl
                                 }
                             }
                            
-                            currentTaskPhase++;
-                            currentTask.TaskPhase = currentTaskPhase.ToString();
-                            currentTask.TaskStatus = EnumTaskStatus.已完成.ToString();
-
-                            currentTask.TaskParameter = batchID; //任务完成，返回批次号
-                            ctlTaskBll.Update(currentTask);
+                            
                             palletTraceBll.AddHistoryEvent(palletID, EnumOCVProcessStatus.托盘装载待入A1库.ToString(), "托盘绑定完成，下一步：等待入A1库",ECAMWCS.userName);
 
                             currentTaskDescribe = "PLC任务已经执行完成";
-                            
+                            if(checkErr)//直接跳到第6步
+                            { 
+
+
+                                if (DevCmdCommit())
+                                {
+                                    currentTaskPhase = 6;
+                                    currentTask.TaskPhase = currentTaskPhase.ToString();
+                                    currentTask.TaskStatus = EnumTaskStatus.已完成.ToString();
+                                    ctlTaskBll.Update(currentTask);
+                                    currentTaskDescribe = "PLC任务完成:" + reStr;
+                                    AddLog(devName + string.Format("装载错误，托盘号:{0},{1}", palletID, reStr), EnumLogType.错误);
+
+                                }
+                                else
+                                {
+                                    break;
+                                }
+                            }
+                            else
+                            {
+                                currentTaskPhase++;
+                                currentTask.TaskPhase = currentTaskPhase.ToString();
+                                currentTask.TaskStatus = EnumTaskStatus.已完成.ToString();
+
+                                currentTask.TaskParameter = batchID; //任务完成，返回批次号
+                                ctlTaskBll.Update(currentTask);
+                            }
                         }
                         break;
                     }
@@ -662,6 +680,7 @@ namespace PLCControl
                     }
                 case 6:
                     {
+                        currentTaskDescribe = "任务完成信息已经成功接收，等待PLC复位'任务完成’信号";
                         //任务完成信号复位
                         if (!taskCompleted)
                         {
@@ -1172,14 +1191,19 @@ namespace PLCControl
                     {
                         continue;
                     }
-                    //if (batteryIDS[i].Length == 12)
-                    //{
-                    //    batchID = batteryIDS[i].Substring(2, 5);
-                    //}
-                    //else
+                    if (batteryIDS[i].Length==13)
                     {
                         batchID = batteryIDS[i].Substring(0, 7);
                     }
+                    else if (batteryIDS[i].Length == 24)
+                    {
+                        batchID = batteryIDS[i].Substring(5, 3) + batteryIDS[i].Substring(14, 4);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                  
                     if(!string.IsNullOrWhiteSpace(batchID))
                     {
                         if (!string.IsNullOrWhiteSpace(lastBatchID))

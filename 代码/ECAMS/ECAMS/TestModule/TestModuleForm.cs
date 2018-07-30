@@ -1651,9 +1651,9 @@ namespace ECAMS
                         {
                             batteryIDS[index] = rw.Cells[j].Value.ToString().Trim();
                             //由12位条码改为13位，modify by zwx,2015-07-22
-                            if (batteryIDS[index].Length > 13)
+                            if (batteryIDS[index].Length > 24)
                             {
-                                batteryIDS[index] = batteryIDS[index].Substring(0, 13);
+                                batteryIDS[index] = batteryIDS[index].Substring(0, 24);
                             }
                         }
                         index++;
@@ -1771,9 +1771,9 @@ namespace ECAMS
                     {
                         continue;
                     }
-                    if (batteryIDs[i].Length < 12) //电芯条码升级为13位，,2015-07-23
+                    if (batteryIDs[i].Length != 13 || (batteryIDs[i].Length !=24)) //电芯条码升级为13位，,2015-07-23
                     {
-                        reStr = "输入电芯条码错误：第" + (i + 1).ToString() + "个电芯条码不足12位";
+                        reStr = "输入电芯条码错误：第" + (i + 1).ToString() + "个电芯条码不足13位";
                         return false;
                     }
                     for (int j = i + 1; j < batteryIDs.Count(); j++)
@@ -1807,7 +1807,7 @@ namespace ECAMS
 
                 for (int i = 0; i < batteryIDs.Count(); i++)
                 {
-                    if (string.IsNullOrWhiteSpace(batteryIDs[i]) || batteryIDs[i].Length < 12) //电芯条码升级为13位，modify by zwx,2015-07-23
+                    if (string.IsNullOrWhiteSpace(batteryIDs[i]) || batteryIDs[i].Length < 13) //电芯条码升级为13位，modify by zwx,2015-07-23
                     {
                         continue;
                     }
@@ -1919,7 +1919,7 @@ namespace ECAMS
                     {
                         continue;
                     }
-                    if (batteryIDs[i].Length < 12) //modify by zwx,2015-07-23
+                    if (batteryIDs[i].Length < 13) //modify by zwx,2015-07-23
                     {
                         reStr = "输入电芯条码错误：第" + (i + 1).ToString() + "个电芯条码不足12位";
                         return false;
@@ -1949,7 +1949,7 @@ namespace ECAMS
                 int batteryCount = 0;
                 for (int i = 0; i < batteryIDs.Count(); i++)
                 {
-                    if (string.IsNullOrWhiteSpace(batteryIDs[i]) || batteryIDs[i].Length < 12) //modify by zwx,2015-07-23
+                    if (string.IsNullOrWhiteSpace(batteryIDs[i]) || batteryIDs[i].Length < 13) //modify by zwx,2015-07-23
                     {
                         continue;
                     }
