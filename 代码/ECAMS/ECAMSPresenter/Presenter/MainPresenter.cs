@@ -124,7 +124,7 @@ namespace ECAMSPresenter
                 if (s.TotalDays < 15.0)
                 {
                     StringBuilder warnInfoBuild = new StringBuilder();
-                    warnInfoBuild.AppendFormat("软件即将过期，将于{0}过期,请付费！(最终解释权归深圳基信机械有限公司)", firstLockTime);
+                    warnInfoBuild.AppendFormat("软件即将过期，将于{0}过期,请付费！(最终解释权归深圳市捷创嘉智能物流装备有限公司)", firstLockTime);
                     this.View.AskMessBox(warnInfoBuild.ToString());
                     View.AddLog(EnumLogCategory.管理层日志, EnumLogType.提示, warnInfoBuild.ToString());
                 }

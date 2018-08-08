@@ -13,7 +13,7 @@ namespace ManualFillAssist
     public partial class Form1 : Form
     {
         #region 数据
-        private string version = "版本：v1.0.2 2018-07-05";
+        private string version = "版本：v1.1.0 2018-08-08";
         private readonly TB_Batch_IndexBll bllBatchIndex = new TB_Batch_IndexBll();
         private readonly TB_Tray_indexBll bllTrayIndex = new TB_Tray_indexBll();
         private readonly LogBll bllLog = new LogBll();
@@ -359,9 +359,9 @@ namespace ManualFillAssist
                         {
                             batteryIDS[index] = rw.Cells[j].Value.ToString().Trim();
                             //由12位条码改为13位，modify by zwx,2015-07-22
-                            if (batteryIDS[index].Length > 13)
+                            if (batteryIDS[index].Length > 24)
                             {
-                                batteryIDS[index] = batteryIDS[index].Substring(0, 13);
+                                batteryIDS[index] = batteryIDS[index].Substring(0, 24);
                             }
                         }
                         index++;
@@ -831,30 +831,30 @@ namespace ManualFillAssist
                     // batchID = batteryIDS[i].Substring(2, 5);
                     int row1 = (int)(i / 12)+1;
                     int col1 = (int)(i % 12)+1;
-                    if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 12)
+                    if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 13)
                     {
                         continue;
                     }
                     if(string.IsNullOrWhiteSpace(batchID))
                     {
-                        if (batteryIDS[i].Length == 12)
+                        if (batteryIDS[i].Length == 13)
                         {
-                            batchID = batteryIDS[i].Substring(2, 5);
+                            batchID = batteryIDS[i].Substring(0, 7);
                         }
                         else
                         {
-                            batchID = batteryIDS[i].Substring(0, 7);
+                            batchID = batteryIDS[i].Substring(5, 3) + batteryIDS[i].Substring(14, 4);
                         }
                         continue;
                     }
                     string cmpBatch = "";
-                    if (batteryIDS[i].Length == 12)
+                    if (batteryIDS[i].Length==13)
                     {
-                        cmpBatch = batteryIDS[i].Substring(2, 5);
+                        cmpBatch = batteryIDS[i].Substring(0, 7);
                     }
                     else
                     {
-                        cmpBatch = batteryIDS[i].Substring(0, 7);
+                        cmpBatch = batteryIDS[i].Substring(5, 3) + batteryIDS[i].Substring(14, 4);
                     }
                     if (!string.IsNullOrWhiteSpace(batchID))
                     {

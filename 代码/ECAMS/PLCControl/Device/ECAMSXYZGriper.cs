@@ -171,7 +171,7 @@ namespace PLCControl
                 
                 for (int i = 0; i < 48; i++)
                 {
-                    for (int j = 0; j < 7; j++)
+                    for (int j = 0; j < 12; j++)
                     {
                         commData = new DevCommDatatype();
                         commData.CommuID = db2ID++;
@@ -403,7 +403,6 @@ namespace PLCControl
                         writeCompleted = true;
                         if (DevCmdCommit())
                         {
-                            
                             currentTaskPhase++;
                             currentTask.TaskPhase = currentTaskPhase.ToString();
                             ctlTaskBll.Update(currentTask);
@@ -447,8 +446,8 @@ namespace PLCControl
                             for (int i = 0; i < 48; i++)
                             {
                                 batteryIDS[i] = "";
-                                byte[] idBytes = new byte[28]; //由12位条码改为12/13位混用，modify by zwx,2015-07-22
-                                byte[] byteArray = new byte[29];
+                             //   byte[] idBytes = new byte[24]; //由12位条码改为12/13位混用，modify by zwx,2015-07-22
+                                byte[] byteArray = new byte[24];
                                 for (int j = 0; j < 12; j++)
                                 {
                                    
@@ -457,14 +456,18 @@ namespace PLCControl
                                     byteArray[2 * j + 1] = (byte)((val >> 8) & 0xff);
                                     commID++;
                                 }
-                                Array.Copy(byteArray, 0, idBytes, 0, 24); //由12位条码改为13位，modify by zwx,2015-07-22，2018-7-29改为24位
-                                string batteryID = System.Text.Encoding.UTF8.GetString(idBytes);
+                             //   Array.Copy(byteArray, 0, idBytes, 0, 24); //由12位条码改为13位，modify by zwx,2015-07-22，2018-7-29改为24位
+                                string batteryID = System.Text.Encoding.UTF8.GetString(byteArray);
                                 batteryID = batteryID.Trim();
                                 batteryID = batteryID.TrimStart('\0');
-                                batteryID = batteryID.TrimEnd('\0');
-                                if (string.IsNullOrEmpty(batteryID) || (batteryID.Length !=13) || (batteryID.Length != 24))
-                               // if (string.IsNullOrEmpty(batteryID) || batteryID.Length < 24)
+                                batteryID = batteryID.TrimEnd(new char[]{'\0','\n','\r'});
+                                int tailPos = batteryID.IndexOf('\0');
+                                if(tailPos>0 &&(tailPos <batteryID.Length))
                                 {
+                                    batteryID = batteryID.Substring(0, tailPos);
+                                }
+                                if (string.IsNullOrEmpty(batteryID) || ((batteryID.Length !=13) && (batteryID.Length != 24)))
+                               {
                                     AddLog(devName + "读取电芯条码错误,位置" + (i + 1).ToString() + ",读到的条码为空或不足13位,24位：" + batteryID, EnumLogType.错误);
                                     this.dicCommuDataDB1[6 + i].Val = 3;
                                     continue;
