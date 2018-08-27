@@ -1181,37 +1181,45 @@ namespace PLCControl
             try
             {
                 batchID = "";
-                string lastBatchID = "";
+              
                 bool batchMulti = false;
                 for (int i = 0; i < batteryIDS.Count(); i++)
                 {
-                    //if (!System.Text.RegularExpressions.Regex.IsMatch(batteryIDS[i], @"^[a-zA-Z0-9-]{13,13}$"))
-                    //{
-                    //    continue;
-                    //}
-                    // batchID = batteryIDS[i].Substring(2, 5);
+                    
                     if (string.IsNullOrEmpty(batteryIDS[i]) || batteryIDS[i].Length < 13)
                     {
                         continue;
                     }
-                    if (batteryIDS[i].Length==13)
+                    if (string.IsNullOrWhiteSpace(batchID))
                     {
-                        batchID = batteryIDS[i].Substring(0, 7);
+                        if (batteryIDS[i].Length == 13)
+                        {
+                            batchID = batteryIDS[i].Substring(0, 7);
+                        }
+                        else if (batteryIDS[i].Length == 24)
+                        {
+                            batchID = batteryIDS[i].Substring(5, 3) + batteryIDS[i].Substring(14, 4);
+                        }
+                        else
+                        {
+                            continue;
+                        }
                     }
-                    else if (batteryIDS[i].Length == 24)
+                    string cmpBatch = "";
+                    if (batteryIDS[i].Length == 13)
                     {
-                        batchID = batteryIDS[i].Substring(5, 3) + batteryIDS[i].Substring(14, 4);
+                        cmpBatch = batteryIDS[i].Substring(0, 7);
                     }
                     else
                     {
-                        continue;
+                        cmpBatch = batteryIDS[i].Substring(5, 3) + batteryIDS[i].Substring(14, 4);
                     }
                   
                     if(!string.IsNullOrWhiteSpace(batchID))
                     {
-                        if (!string.IsNullOrWhiteSpace(lastBatchID))
+                        if (!string.IsNullOrWhiteSpace(cmpBatch))
                         {
-                            if (batchID.ToUpper() != lastBatchID.ToUpper())
+                            if (batchID.ToUpper() != cmpBatch.ToUpper())
                             {
                                 batchMulti = true;
                                 //reStr = string.Format("存在不同批,批次1:{0},批次2：{1}", lastBatchID, batchID);
@@ -1220,12 +1228,9 @@ namespace PLCControl
                                 batteryIDS[i] = string.Empty;
                             }
                         }
-                        lastBatchID = batchID;
+                       
                     }
-                    //if (gxBatchBll.Exists(batchID))
-                    //{
-                    //    break;
-                    //}
+                   
                 }
                 if(batchMulti)
                 {
